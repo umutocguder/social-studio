@@ -1,0 +1,9 @@
+# Created by 11hopem (11 Hopem Software Ltd. Şti.)
+node_modules/
+.DS_Store
+.env
+.env*.local
+dist/
+coverage/
+.vercel
+.vercel/

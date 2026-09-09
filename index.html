@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!-- Created by 11hopem (11 Hopem Software Ltd. Şti.) -->
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Studio — Çoklu Marka Sosyal Medya & İçerik Yönetim Platformu</title>
+  <meta name="description" content="Social Studio; çoklu marka yönetimi, viral kanca ve senaryo üretimi, Instagram 9-Grid ızgara planlayıcı ve tek tıkla WhatsApp müşteri onay akışı sunan hepsi bir arada sosyal medya platformudur.">
+  <meta name="theme-color" content="#090d16">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo-area">
+        <img src="assets/icons/logo.svg" alt="Social Studio Logo" class="logo-img">
+      </div>
+
+      <div class="brand-selector-wrap">
+        <label for="globalBrandSelect">Aktif Marka:</label>
+        <select id="globalBrandSelect" class="brand-select"></select>
+      </div>
+
+      <div class="header-actions">
+        <button id="exportJsonBtn" class="btn btn-outline" title="Yerel Verileri İndir">
+          💾 Yedek Al
+        </button>
+        <label class="btn btn-outline" style="margin:0; cursor:pointer;" title="Yedek Yükle">
+          📂 Yükle
+          <input type="file" id="importJsonInput" accept=".json" style="display:none;">
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 20px;">
+    <!-- Brand Info Banner -->
+    <section id="brandBanner" class="brand-banner"></section>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs-bar">
+      <button class="tab-btn active" data-tab="tabStudio">
+        ✨ Viral Kanca & Senaryo Stüdyosu
+      </button>
+      <button class="tab-btn" data-tab="tabGrid">
+        📱 Instagram 9-Grid & Sütun Dengesi
+      </button>
+      <button class="tab-btn" data-tab="tabBrands">
+        🏢 Marka & Müşteri Portföyü
+      </button>
+      <button class="tab-btn" data-tab="tabStrategy">
+        📚 2026 Büyüme & Algoritma Rehberi
+      </button>
+    </nav>
+
+    <!-- TAB 1: CONTENT STUDIO -->
+    <section id="tabStudio" class="tab-view active">
+      <div class="studio-layout">
+        <!-- Studio Controls -->
+        <div class="card">
+          <div class="card-title">
+            <span>🪝 Viral Kanca & Konsept Belirle</span>
+            <span style="font-size:0.8rem; color:var(--text-dim);">Psychological Hook Engine</span>
+          </div>
+
+          <div class="form-group">
+            <label>Kanca Kategorisi</label>
+            <div id="hookCategories" class="hook-category-chips"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Viral Kanca Şablonu Seç (Tıkla ve Uygula)</label>
+            <div id="hookList" class="hook-list"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="topicInput">İçerik Konusu / Anahtar Başlık *</label>
+            <input type="text" id="topicInput" class="form-control" placeholder="Örn: Ada Mutfak Tasarımı, Keten Gömlek Kombini, Harita Bilgisi">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="formatSelect">İçerik Formatı</label>
+              <select id="formatSelect" class="form-control">
+                <option value="reels">🎬 Reels / TikTok Senaryosu</option>
+                <option value="carousel">📑 Kaydırmalı Post (Carousel)</option>
+                <option value="caption">📝 Tekil Post & Açıklama Metni</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ctaSelect">Eyleme Çağrı (CTA)</label>
+              <select id="ctaSelect" class="form-control">
+                <option value="save">📌 Kaydet Odaklı (Sıcak Kitle)</option>
+                <option value="comment">👇 Yorum Odaklı (Etkileşim)</option>
+                <option value="dm">✉️ DM / Bilgi Odaklı (Dönüşüm)</option>
+                <option value="share">🚀 Paylaş Odaklı (Viral Uzanım)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pillarSelect">İçerik Sütunu (Content Pillar)</label>
+            <select id="pillarSelect" class="form-control">
+              <option value="value">💡 Eğitim & Değer (%40)</option>
+              <option value="social_proof">⭐ Sosyal Kanıt & Referans (%30)</option>
+              <option value="behind_scenes">🎬 Perde Arkası & Kültür (%20)</option>
+              <option value="conversion">🎯 Doğrudan Satış & Teklif (%10)</option>
+            </select>
+          </div>
+
+          <button id="generateContentBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">
+            ⚡ Senaryo & Metni Üret
+          </button>
+        </div>
+
+        <!-- Studio Output -->
+        <div class="card" style="display:flex; flex-direction:column;">
+          <div class="card-title">
+            <span>📋 Üretilen İçerik & Senaryo Çıktısı</span>
+            <div style="display:flex; gap:8px;">
+              <button id="copyOutputBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;">
+                📋 Kopyala
+              </button>
+              <button id="addToGridBtn" class="btn btn-primary" style="padding:4px 10px; font-size:0.8rem;">
+                ➕ 9-Grid'e Ekle
+              </button>
+            </div>
+          </div>
+
+          <div id="contentOutput" class="output-box" style="flex-grow:1;">
+Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladığınızda;
+1. 0-3 saniye kanca (hook)
+2. 3-12 saniye tutundurma (retention)
+3. Değer ve çözüm maddeleri
+4. Eyleme çağrı (CTA)
+5. İlgili markanın etiketleri ve hazır açıklama metni burada oluşturulacaktır.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: INSTAGRAM 9-GRID & PILLAR BALANCE -->
+    <section id="tabGrid" class="tab-view">
+      <div class="grid-simulator-layout">
+        <!-- Phone Mockup Grid -->
+        <div>
+          <div class="phone-mockup">
+            <div class="phone-header">
+              <h4 id="phoneHandle">Instagram Önizleme</h4>
+              <p style="font-size:0.75rem; color:var(--text-dim);">Canlı 3x3 Izgara Tasarımı</p>
+            </div>
+            <div class="phone-stats">
+              <div><strong>124</strong>Gönderi</div>
+              <div><strong>14.2K</strong>Takipçi</div>
+              <div><strong>312</strong>Takip</div>
+            </div>
+            <div id="instaGrid" class="insta-9-grid">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Add & Pillar Balance -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <!-- Quick Add Form -->
+          <div class="card">
+            <div class="card-title">
+              <span>➕ Hızlı Gönderi Ekle</span>
+              <span style="font-size:0.8rem; color:var(--text-dim);">Izgarayı Doldur</span>
+            </div>
+            <form id="quickAddPostForm">
+              <div class="form-group">
+                <label for="quickPostTitle">Gönderi Başlığı / Konusu *</label>
+                <input type="text" id="quickPostTitle" class="form-control" placeholder="Örn: 2026 Mutfak Trendleri" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="quickPostFormat">Format</label>
+                  <select id="quickPostFormat" class="form-control">
+                    <option value="reels">🎬 Reels</option>
+                    <option value="carousel">📑 Carousel</option>
+                    <option value="single_photo">📷 Tekil Fotoğraf</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="quickPostPillar">Sütun</label>
+                  <select id="quickPostPillar" class="form-control">
+                    <option value="value">💡 Değer</option>
+                    <option value="social_proof">⭐ Referans</option>
+                    <option value="behind_scenes">🎬 Perde Arkası</option>
+                    <option value="conversion">🎯 Satış</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="quickPostDate">Yayın Tarihi</label>
+                <input type="date" id="quickPostDate" class="form-control" value="2026-09-15">
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Izgaraya Gönderi Ekle
+              </button>
+            </form>
+          </div>
+
+          <!-- Content Pillar Meter -->
+          <div class="card">
+            <div class="card-title">
+              <span>📊 İçerik Sütunu Dengesi (Pillar Balance)</span>
+              <span style="font-size:0.8rem; color:var(--text-dim);">Algoritma Dostu Dağılım</span>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted);">
+              Sürekli satış yapmak veya sadece bilgi vermek hesabı yorar. İdeal dağılım: %40 Değer, %30 Sosyal Kanıt, %20 Samimiyet, %10 Doğrudan Teklif.
+            </p>
+            <div id="pillarMeterList" class="pillar-meter-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: BRAND & CLIENT PORTFOLIO -->
+    <section id="tabBrands" class="tab-view">
+      <div class="studio-layout">
+        <div class="card">
+          <div class="card-title">
+            <span>➕ Yeni Müşteri / Marka Ekle</span>
+          </div>
+          <form id="newBrandForm">
+            <div class="form-group">
+              <label for="newBrandName">Marka Adı *</label>
+              <input type="text" id="newBrandName" class="form-control" placeholder="Örn: Kahve Dünyası, Özgür Diş Kliniği" required>
+            </div>
+            <div class="form-group">
+              <label for="newBrandHandle">Instagram Kullanıcı Adı</label>
+              <input type="text" id="newBrandHandle" class="form-control" placeholder="@markaadi" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="newBrandSector">Sektör</label>
+                <input type="text" id="newBrandSector" class="form-control" placeholder="Örn: Sağlık & Diş Hekimliği">
+              </div>
+              <div class="form-group">
+                <label for="newBrandPhone">WhatsApp Onay Hattı</label>
+                <input type="tel" id="newBrandPhone" class="form-control" placeholder="05XX XXX XX XX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="newBrandTone">Marka İletişim Tonu</label>
+              <input type="text" id="newBrandTone" class="form-control" placeholder="Örn: Samimi, bilgilendirici, lüks ve güvenilir">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Markayı Kaydet ve Yönetmeye Başla
+            </button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>🏢 Mevcut Müşteri Portföyünüz</span>
+          </div>
+          <div id="brandList">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: GROWTH & STRATEGY GUIDE -->
+    <section id="tabStrategy" class="tab-view">
+      <div class="card" style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--primary);">
+          🚀 Sosyal Medya Yöneticisinin Altın Kuralları (2026 Güncellemesi)
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+          Sosyal medya algoritmaları artık doğrudan "İzlenme Süresi (Watch Time)" ve "Kaydet / Paylaş (Save & Share)" oranlarına göre dağıtım yapmaktadır. Müşterileriniz için içerik üretirken şu formülü takip edin:
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <h4 style="color:#38bdf8; margin-bottom:8px;">1. İlk 3 Saniye Kuralı (Visual Hook)</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              Videonun başında asla "Merhaba arkadaşlar bugün..." diye başlamayın. İzleyici 1.5 saniyede karar verir. Direkt problemle veya merak uyandıran soruyla girin.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <h4 style="color:#34d399; margin-bottom:8px;">2. Carousel Kaydırma Döngüsü</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              İlk slaytta yüksek merak uyandırın, ikinci slaytta "Neden bu önemli?" sorusunu cevaplayın, 3-5 arası hap çözümleri verin ve son slaytta mutlaka "KAYDET" çağrısı yapın.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <h4 style="color:#f472b6; margin-bottom:8px;">3. Müşteri İletişim Otomasyonu</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              Müşteriye dağınık fotoğraflar atmayın. Social Studio üzerinden tek tıkla üretilen hazır WhatsApp Onay Kartı ile metin ve tasarımı resmi bir onaya bağlayın.
+            </p>
+          </div>
+
+          <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+            <h4 style="color:#fbbf24; margin-bottom:8px;">4. 9-Grid Görsel Ritim</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);">
+              Profil ziyaretçilerinin takip et butonuna basmasını sağlayan şey profildeki düzen harmonisidir. Yan yana 3 reels kapağı yerine fotoğraf-alıntı-video dengesi kurun.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Post Detail & Approval Modal -->
+  <div id="postModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+        <div>
+          <h3 id="modalPostTitle" style="font-size:1.25rem;">Gönderi Detayı</h3>
+          <p id="modalPostFormat" style="font-size:0.8rem; color:var(--text-dim); margin-top:2px;"></p>
+        </div>
+        <button id="closeModalBtn" style="background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <label for="modalStatusSelect">İçerik Durumu</label>
+        <select id="modalStatusSelect" class="form-control">
+          <option value="idea">💡 Fikir / Not</option>
+          <option value="draft">📝 Metin Taslağı</option>
+          <option value="design_ready">🎨 Görsel Hazır</option>
+          <option value="awaiting_approval">⏳ Müşteri Onayında</option>
+          <option value="approved">✅ Onaylandı</option>
+          <option value="scheduled">🗓️ Planlandı</option>
+          <option value="published">🚀 Yayında</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Açıklama Metni (Caption)</label>
+        <div id="modalPostCaption" class="output-box" style="max-height:180px;"></div>
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button id="modalWhatsAppBtn" class="btn btn-whatsapp" style="flex:1;">
+          📱 Müşteriye WhatsApp Onay Mesajı Gönder
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="footer-inner">
+      <div>
+        © 2026 Social Studio. Tüm hakları saklıdır.
+      </div>
+      <div class="footer-links">
+        <a href="legal/kvkk.html">KVKK Aydınlatma</a>
+        <a href="legal/gizlilik.html">Gizlilik Politikası</a>
+        <a href="legal/kullanim-kosullari.html">Kullanım Koşulları</a>
+      </div>
+      <div>
+        Created by <span style="color:var(--primary); font-weight:700;">11hopem</span> (11 Hopem Software Ltd. Şti.)
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

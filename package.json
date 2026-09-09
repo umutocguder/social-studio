@@ -1,0 +1,21 @@
+{
+  "name": "social-studio",
+  "version": "1.0.0",
+  "description": "Social Studio - Çoklu Marka Sosyal Medya Yönetim, İçerik Üretim ve Müşteri Onay Platformu",
+  "main": "src/brandManager.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'tests/**/*.test.js'",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "social-media",
+    "content-creation",
+    "instagram-grid",
+    "reels-scripts",
+    "approval-workflow",
+    "11hopem"
+  ],
+  "author": "11hopem <umutocgdr@gmail.com>",
+  "license": "Proprietary"
+}
