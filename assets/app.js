@@ -23,6 +23,7 @@ import {
   exportWorkspaceToJson,
   importWorkspaceFromJson
 } from '../src/approvalEngine.js';
+import { logger } from '../src/telemetry/logger.js';
 
 // Seed demo posts for rich initial experience
 const INITIAL_DEMO_POSTS = [
@@ -109,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandManagerView();
   initImportExport();
   updateUI();
+  logger.info('Social Studio initialized', {
+    activeBrandId: currentBrandId,
+    totalBrands: brandManager.getAllBrands().length,
+    totalPosts: gridSimulator.posts.length
+  });
 });
 
 function loadStateFromLocal() {
