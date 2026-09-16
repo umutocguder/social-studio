@@ -62,6 +62,58 @@ export const VIRAL_HOOKS = [
     categoryTitle: "İçeriden Sırlar",
     pattern: "Sektörün içinden biri olarak açıklıyorum: {TOPIC} sırrı 🤫",
     example: "Sektörün içinden biri olarak açıklıyorum: Lüks villa aydınlatma sırrı 🤫"
+  },
+  {
+    id: "h-nolte-arch-1",
+    category: "architecture",
+    categoryTitle: "Mimari & Nolte",
+    pattern: "Konya'da bir villa yaptırırken yapılan 3 büyük {TOPIC} hatası ❌",
+    example: "Konya'da bir villa yaptırırken yapılan 3 büyük ada mutfak hatası ❌"
+  },
+  {
+    id: "h-nolte-arch-2",
+    category: "architecture",
+    categoryTitle: "Mimari & Nolte",
+    pattern: "Neden lüks villalarda artık sıradan mobilya yerine {TOPIC} tercih ediliyor?",
+    example: "Neden lüks villalarda artık sıradan mobilya yerine Alman Nolte Küchen tercih ediliyor?"
+  },
+  {
+    id: "h-nolte-arch-3",
+    category: "architecture",
+    categoryTitle: "Mimari & Nolte",
+    pattern: "Meram'da tamamladığımız bu projenin öncesi ve sonrasına inanamayacaksınız ✨ ({TOPIC})",
+    example: "Meram'da tamamladığımız bu projenin öncesi ve sonrasına inanamayacaksınız ✨ (Garden Villaları)"
+  }
+];
+
+export const NOLTE_PROJECT_PRESETS = [
+  {
+    title: "Yakapark Konutları Ada Mutfak & Salon Entegrasyonu",
+    format: "reels",
+    pillar: "social_proof",
+    coverText: "Yakapark Konutları Lüks Mutfak Turu 🏡",
+    caption: "Konya Yakapark Konutları için tasarladığımız Nolte Küchen mutfak projesinde Alman ergonomisi ve zarafetini buluşturduk. Milimetrik detaylar ve gizli kiler çözümleriyle hayalinizdeki yaşam alanı."
+  },
+  {
+    title: "Meram Villa Öncesi / Sonrası Büyük Dönüşüm",
+    format: "carousel",
+    pillar: "social_proof",
+    coverText: "Öncesi / Sonrası: Meram Villa Yenileme 👉",
+    caption: "Mimar Aysun Özçelik imzasıyla Konya Meram'da hayat bulan bu villada eski doku yerini modern İskandinav lüksüne bıraktı. Adım adım kaydırarak dönüşüme tanık olun!"
+  },
+  {
+    title: "25 Yıl Bozulmayan Blum Çekmece & Sessiz Kapanış Sırrı",
+    format: "reels",
+    pillar: "behind_scenes",
+    coverText: "25 Yıl Boyunca Asla Sarkmayan Çekmeceler 🇩🇪",
+    caption: "Nolte Küchen mobilyalarında kullanılan Blum frenli mekanizmalar 200.000 açma-kapama döngüsüyle test ediliyor. Alman mühendisliğinin kalitesi burada gizli."
+  },
+  {
+    title: "Lüks Villalarda Ada Mutfak Ölçüleri: Kaç cm Olmalı?",
+    format: "carousel",
+    pillar: "value",
+    coverText: "Ada Mutfakta Altın Ölçü Kuralı 📐",
+    caption: "Ada ile tezgah arası en az 110-120 cm olmalı. Yanlış hesaplanan mutfaklarda hareket alanı kısıtlanır. Mimari keşif için bize ulaşın!"
   }
 ];
 

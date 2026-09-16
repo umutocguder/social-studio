@@ -46,10 +46,14 @@ export const DEFAULT_BRANDS = [
     handle: "@noltemimarlik",
     sector: "İç Mimarlık & Lüks Konut",
     tone: "Rafine, lüks, mimari ve estetik",
+    founder: "Mimar Aysun Özçelik",
+    showroomLocation: "Şeyh Sadrettin Mah. Ferit Paşa Cad. Meram / KONYA",
+    website: "https://doryamimarlik.com.tr",
+    officialBrands: ["Nolte Küchen", "Nolte Möbel", "Trend Küchen", "Masa & Sandalye Grubu"],
     primaryColor: "#c5a059",
     secondaryColor: "#14161d",
     targetAudience: "Villa ve rezidans sahipleri, mimari meraklıları",
-    defaultHashtags: ["#noltemimarlik", "#icmimarlik", "#villatasarimi", "#luxuryinteriors", "#almanmuhendisligi"],
+    defaultHashtags: ["#noltemimarlik", "#icmimarlik", "#villatasarimi", "#luxuryinteriors", "#almanmuhendisligi", "#konyaicmimarlik"],
     clientPhone: "0535 403 13 63"
   },
   {

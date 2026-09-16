@@ -48,14 +48,23 @@
       <button class="tab-btn active" data-tab="tabStudio">
         ✨ Viral Kanca & Senaryo Stüdyosu
       </button>
+      <button class="tab-btn" data-tab="tabCalendar">
+        🗓️ Editoryal Takvim & Zamanlama
+      </button>
       <button class="tab-btn" data-tab="tabGrid">
         📱 Instagram 9-Grid & Sütun Dengesi
+      </button>
+      <button class="tab-btn" data-tab="tabAnalytics">
+        📈 Analitik & Büyüme Raporu
+      </button>
+      <button class="tab-btn" data-tab="tabMetaApi">
+        🔌 Meta Graph API
       </button>
       <button class="tab-btn" data-tab="tabBrands">
         🏢 Marka & Müşteri Portföyü
       </button>
       <button class="tab-btn" data-tab="tabStrategy">
-        📚 2026 Büyüme & Algoritma Rehberi
+        📚 2026 Büyüme Rehberi
       </button>
     </nav>
 
@@ -77,6 +86,11 @@
           <div class="form-group">
             <label>Viral Kanca Şablonu Seç (Tıkla ve Uygula)</label>
             <div id="hookList" class="hook-list"></div>
+          </div>
+
+          <div class="form-group" id="noltePresetWrap">
+            <label>🏛️ Nolte Mimarlık Gerçek Projeleri (Tek Tıkla Senaryo)</label>
+            <div id="noltePresetChips" class="nolte-preset-chips"></div>
           </div>
 
           <div class="form-group">
@@ -141,6 +155,59 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
 3. Değer ve çözüm maddeleri
 4. Eyleme çağrı (CTA)
 5. İlgili markanın etiketleri ve hazır açıklama metni burada oluşturulacaktır.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: EDITORIAL CALENDAR -->
+    <section id="tabCalendar" class="tab-view">
+      <div class="calendar-layout">
+        <div class="card">
+          <div class="calendar-topbar">
+            <div class="calendar-nav">
+              <button id="calPrevMonthBtn" class="btn btn-outline" style="padding:6px 14px;">&larr; Önceki</button>
+              <h3 id="calMonthTitle" class="calendar-month-title">Eylül 2026</h3>
+              <button id="calNextMonthBtn" class="btn btn-outline" style="padding:6px 14px;">Sonraki &rarr;</button>
+              <button id="calTodayBtn" class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;">Bugün</button>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button id="autoScheduleBtn" class="btn btn-primary" title="Sıradaki en uygun boş saat slotuna otomatik planla">
+                ⚡ Akıllı Zamanla (Auto-Schedule)
+              </button>
+              <button id="exportIcsBtn" class="btn btn-outline" title="Apple Calendar veya Google Calendar için .ics indir">
+                📥 .ICS Takvim İndir
+              </button>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; margin-top:14px; text-align:center;">
+            <div class="cal-weekday">Pzt</div>
+            <div class="cal-weekday">Sal</div>
+            <div class="cal-weekday">Çar</div>
+            <div class="cal-weekday">Per</div>
+            <div class="cal-weekday">Cum</div>
+            <div class="cal-weekday">Cmt</div>
+            <div class="cal-weekday">Paz</div>
+          </div>
+
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Nolte Optimal Time Recommendations -->
+        <div class="card">
+          <div class="card-title">
+            <span>⏰ Nolte Mimarlık İdeal Paylaşım Saatleri (Konya Meram Hedef Kitlesi)</span>
+            <span style="font-size:0.8rem; color:var(--text-dim);">Scheduler Optimizer</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+            Lüks villa ve iç mimarlık müşterileri içerikleri çoğunlukla akşam dinlenme saatlerinde ve pazar günleri inceler.
+          </p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px;" id="optimalSlotsList">
+            <!-- Rendered by JS -->
           </div>
         </div>
       </div>
@@ -221,6 +288,130 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
             <div id="pillarMeterList" class="pillar-meter-list">
               <!-- Rendered by JS -->
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: ANALYTICS & EXECUTIVE REPORT -->
+    <section id="tabAnalytics" class="tab-view">
+      <div class="analytics-layout">
+        <!-- KPI Cards -->
+        <div class="analytics-kpis" id="analyticsKpiRow">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:24px;">
+          <!-- Format Performance -->
+          <div class="card">
+            <div class="card-title">
+              <span>🎯 Format Bazlı Etkileşim & Viral Potansiyel</span>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
+              Reels izlenme derinliği kazandırırken, Carousel kaydetme ve müşteri keşif oranını artırır.
+            </p>
+            <div id="formatBarGrid" class="format-bar-grid">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Best Time Matrix -->
+          <div class="card">
+            <div class="card-title">
+              <span>🔥 En Yüksek Etkileşim Saatleri (Nolte & Konya)</span>
+            </div>
+            <div style="padding:10px 0; font-size:0.85rem; color:var(--text-muted); line-height:1.7;">
+              <div style="margin-bottom:8px;">🌟 <strong>Pazar 19:30 - 21:00:</strong> Zirve Etkileşim (%8.9 ER) — Villa & Salon projeleri için ideal.</div>
+              <div style="margin-bottom:8px;">⭐ <strong>Cuma 20:15:</strong> Hafta sonu mimari keşif ve randevu planlama (%8.1 ER).</div>
+              <div style="margin-bottom:8px;">💡 <strong>Çarşamba 19:30:</strong> Hafta ortası kanca & problem-çözüm Reels (%7.6 ER).</div>
+              <div>☕ <strong>Cumartesi 11:30:</strong> Kahve eşliğinde kaydırmalı (Carousel) mimari detay turu.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Report for Mimar Aysun Özçelik -->
+        <div class="card">
+          <div class="card-title">
+            <span>📋 Mimar Aysun Özçelik İçin Yönetici Özeti (Executive Report)</span>
+            <div style="display:flex; gap:8px;">
+              <button id="copyExecReportBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;">📋 Raporu Kopyala</button>
+              <button id="waExecReportBtn" class="btn btn-whatsapp" style="padding:4px 10px; font-size:0.8rem;">📱 WhatsApp ile Gönder</button>
+            </div>
+          </div>
+          <div id="executiveReportOutput" class="output-box" style="white-space:pre-wrap; max-height:260px; font-size:0.88rem;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: META GRAPH API -->
+    <section id="tabMetaApi" class="tab-view">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+        <!-- Meta Account Card -->
+        <div class="card">
+          <div class="card-title">
+            <span>🔌 Meta & Instagram Graph API Bağlantısı</span>
+            <span id="apiStatusBadge" class="api-badge sandbox">🧪 Sandbox Modu</span>
+          </div>
+
+          <div class="form-group">
+            <label>Çalışma Modu</label>
+            <select id="metaModeSelect" class="form-control">
+              <option value="sandbox">🧪 Sandbox / Simülasyon (Çevrimdışı Güvenli Test)</option>
+              <option value="live">🚀 Canlı Meta Graph API v20.0</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Bağlı Instagram Business Hesabı</label>
+            <input type="text" id="metaAccountHandle" class="form-control" value="@noltemimarlik" readonly>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Instagram Account ID</label>
+              <input type="text" id="metaAccountId" class="form-control" value="17841405309284752">
+            </div>
+            <div class="form-group">
+              <label>Facebook Sayfa ID</label>
+              <input type="text" id="metaPageId" class="form-control" value="109283746592817">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Meta Access Token (System User / User Token)</label>
+            <input type="password" id="metaTokenInput" class="form-control" value="EAAG_SIMULATED_TOKEN_11HOPEM_NOLTE_STUDIO">
+          </div>
+
+          <div style="display:flex; gap:10px;">
+            <button id="verifyTokenBtn" class="btn btn-outline" style="flex:1;">
+              🔍 Token ve İzinleri Doğrula
+            </button>
+            <button id="fetchProfileBtn" class="btn btn-primary" style="flex:1;">
+              👤 Profil Bilgisi Çek
+            </button>
+          </div>
+        </div>
+
+        <!-- Publishing & Live Console -->
+        <div class="card" style="display:flex; flex-direction:column;">
+          <div class="card-title">
+            <span>🚀 Doğrudan Yayınlama & API Konsolu</span>
+            <button id="testPublishBtn" class="btn btn-primary" style="padding:5px 12px; font-size:0.82rem;">
+              ⚡ Gönderiyi Yayınla (Simüle Et)
+            </button>
+          </div>
+
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">
+            Meta Graph API v20.0 standartlarında önce <code>/{ig-user-id}/media</code> ile container oluşturulur, ardından <code>/{ig-user-id}/media_publish</code> ile akışta yayınlanır.
+          </p>
+
+          <div id="metaConsoleOutput" class="api-console" style="flex-grow:1;">
+[Social Studio Meta Client Hazır]
+Mod: Sandbox / Simülasyon Aktif
+Bağlı Hesap: @noltemimarlik (Nolte Mimarlık & Mutfak)
+İzinler: instagram_basic, instagram_content_publish, instagram_manage_insights
           </div>
         </div>
       </div>
