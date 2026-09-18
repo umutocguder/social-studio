@@ -91,6 +91,29 @@ export const DEFAULT_BRANDS = [
     targetAudience: "Araç, konut ve sağlık sigortası arayan aileler & KOBİ'ler",
     defaultHashtags: ["#sigorta", "#kasko", "#trafiksigortasi", "#dask", "#tamamlayicisaglik"],
     clientPhone: "0535 403 13 63"
+  },
+  {
+    id: "umutocguder",
+    name: "Umut Öçgüder",
+    handle: "@umutocguder",
+    sector: "Yazılım Mühendisliği & Tech Girişimcilik",
+    tone: "Vizyoner, teknik, eğitici, ilham verici ve net",
+    title: "Senior Software Engineer & Tech Founder",
+    company: "11hopem Software Ltd. Şti.",
+    website: "https://umutocguder.vercel.app",
+    primaryColor: "#0284c7",
+    secondaryColor: "#0f172a",
+    targetAudience: "Yazılımcılar, teknoloji liderleri, startup kurucuları ve mühendisler",
+    socialAccounts: {
+      instagram: "@umutocguder",
+      tiktok: "@umutocguder",
+      linkedin: "in/umutocguder",
+      x: "@umutocguder",
+      github: "umutocguder",
+      web: "https://umutocguder.vercel.app"
+    },
+    defaultHashtags: ["#yazilim", "#softwareengineering", "#iosdev", "#techfounder", "#coding", "#yapayzeka", "#buildinpublic"],
+    clientPhone: "0535 403 13 63"
   }
 ];
 

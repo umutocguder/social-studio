@@ -83,6 +83,65 @@ export const VIRAL_HOOKS = [
     categoryTitle: "Mimari & Nolte",
     pattern: "Meram'da tamamladığımız bu projenin öncesi ve sonrasına inanamayacaksınız ✨ ({TOPIC})",
     example: "Meram'da tamamladığımız bu projenin öncesi ve sonrasına inanamayacaksınız ✨ (Garden Villaları)"
+  },
+  {
+    id: "h-tech-1",
+    category: "tech_developer",
+    categoryTitle: "💻 Yazılım & Tech",
+    pattern: "Neden 2026'da artık {TOPIC} yazmayı bırakıp AI-native mimariye geçtim?",
+    example: "Neden 2026'da artık manuel CRUD yazmayı bırakıp AI-native mimariye geçtim?"
+  },
+  {
+    id: "h-tech-2",
+    category: "tech_developer",
+    categoryTitle: "💻 Yazılım & Tech",
+    pattern: "Senior bir mühendis olarak {TOPIC} yaparken gördüğüm en kritik 3 hata ❌",
+    example: "Senior bir mühendis olarak iOS mimarisi kurarken gördüğüm en kritik 3 hata ❌"
+  },
+  {
+    id: "h-tech-3",
+    category: "tech_developer",
+    categoryTitle: "💻 Yazılım & Tech",
+    pattern: "10 yıllık yazılım kariyerimde bana en çok kazandıran {TOPIC} prensibi 📌",
+    example: "10 yıllık yazılım kariyerimde bana en çok kazandıran Clean Architecture prensibi 📌"
+  },
+  {
+    id: "h-tech-4",
+    category: "tech_developer",
+    categoryTitle: "💻 Yazılım & Tech",
+    pattern: "Sıfırdan production-ready bir {TOPIC} kurmanın 4 adımlı sistem tasarımı:",
+    example: "Sıfırdan production-ready bir SaaS platformu kurmanın 4 adımlı sistem tasarımı:"
+  }
+];
+
+export const UMUT_TECH_PRESETS = [
+  {
+    title: "11hopem Software: Sıfırdan SaaS Mimarisi Kurmak (Build-in-Public)",
+    format: "carousel",
+    pillar: "behind_scenes",
+    coverText: "Sıfırdan SaaS Şirketi Kurma Günlüğü 🚀",
+    caption: "11hopem Software çatısı altında geliştirdiğimiz multi-tenant SaaS mimarisinde Next.js 15, Turbopack ve Supabase stack'ini tercih ettik. Sıfırdan mimari kararlar ve dersler kaydırmalı postta!"
+  },
+  {
+    title: "SwiftUI & Clean Architecture ile Zero-Crash iOS Standartları",
+    format: "reels",
+    pillar: "value",
+    coverText: "Zero-Crash iOS Uygulama Mimarisi 📱",
+    caption: "iOS uygulamalarında production çökmelerini sıfıra indirmek şans değil, mimari disiplindir. MVVM + Clean Architecture ile decoupling nasıl yapılır?"
+  },
+  {
+    title: "Antigravity ve Agentic AI ile Kodlama Hızımı 5 Katına Nasıl Çıkardım?",
+    format: "reels",
+    pillar: "value",
+    coverText: "AI Agent'lar ile 5x Geliştirici Verimliliği ⚡",
+    caption: "Sadece kod tamamlayıcı (autocomplete) değil; otonom AI ajanlarıyla pair-programming yaparak sprint sürelerini yarıya düşürdük. İşte kullandığımız framework."
+  },
+  {
+    title: "Yazılımcılar Neden Sadece Kod Yazarak Yükselemez? (Sistem Tasarımı & İş Analizi)",
+    format: "carousel",
+    pillar: "social_proof",
+    coverText: "Senior Seviyeye Geçişin Görünmeyen Sırrı 💡",
+    caption: "Kod yazmak işin %20'si. Şirketlere ve müşterilere değer katan asıl güç; iş analizi, veri modelleme ve ölçeklenebilir sistem tasarımıdır."
   }
 ];
 

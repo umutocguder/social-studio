@@ -58,7 +58,7 @@
         📈 Analitik & Büyüme Raporu
       </button>
       <button class="tab-btn" data-tab="tabMetaApi">
-        🔌 Meta Graph API
+        🌐 Çoklu Kanal (TikTok, X, LinkedIn)
       </button>
       <button class="tab-btn" data-tab="tabBrands">
         🏢 Marka & Müşteri Portföyü
@@ -91,6 +91,11 @@
           <div class="form-group" id="noltePresetWrap">
             <label>🏛️ Nolte Mimarlık Gerçek Projeleri (Tek Tıkla Senaryo)</label>
             <div id="noltePresetChips" class="nolte-preset-chips"></div>
+          </div>
+
+          <div class="form-group" id="umutPresetWrap" style="display:none;">
+            <label>💻 Umut Öçgüder Yazılım & Tech Girişimcilik (Tek Tıkla Senaryo)</label>
+            <div id="umutPresetChips" class="nolte-preset-chips"></div>
           </div>
 
           <div class="form-group">
@@ -146,6 +151,12 @@
                 ➕ 9-Grid'e Ekle
               </button>
             </div>
+          <div class="channel-preview-bar" id="channelPreviewBar">
+            <button class="channel-tab-btn active" data-channel="all">✨ Varsayılan</button>
+            <button class="channel-tab-btn" data-channel="x">𝕏 X (Thread)</button>
+            <button class="channel-tab-btn" data-channel="linkedin">💼 LinkedIn</button>
+            <button class="channel-tab-btn" data-channel="tiktok">🎵 TikTok</button>
+            <button class="channel-tab-btn" data-channel="instagram">📸 Instagram</button>
           </div>
 
           <div id="contentOutput" class="output-box" style="flex-grow:1;">
@@ -345,13 +356,52 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
       </div>
     </section>
 
-    <!-- TAB: META GRAPH API -->
+    <!-- TAB: MULTI-CHANNEL & META GRAPH API -->
     <section id="tabMetaApi" class="tab-view">
+      <!-- 4 Connected Channel Status Cards -->
+      <div class="channel-cards-grid" id="channelCardsGrid">
+        <div class="channel-card">
+          <div class="channel-card-header">
+            <span style="font-size:1.3rem;">📸</span>
+            <span class="api-badge connected">🟢 Bağlı</span>
+          </div>
+          <div class="channel-card-handle" id="channelIgHandle">@noltemimarlik</div>
+          <div class="channel-card-meta">Meta Graph API v20.0 • Reels & Post</div>
+        </div>
+
+        <div class="channel-card">
+          <div class="channel-card-header">
+            <span style="font-size:1.3rem;">🎵</span>
+            <span class="api-badge sandbox">🧪 Sandbox</span>
+          </div>
+          <div class="channel-card-handle" id="channelTiktokHandle">@umutocguder</div>
+          <div class="channel-card-meta">TikTok Display & Posting API v2</div>
+        </div>
+
+        <div class="channel-card">
+          <div class="channel-card-header">
+            <span style="font-size:1.3rem;">💼</span>
+            <span class="api-badge connected">🟢 Bağlı</span>
+          </div>
+          <div class="channel-card-handle" id="channelLinkedinHandle">in/umutocguder</div>
+          <div class="channel-card-meta">LinkedIn Restli Community API</div>
+        </div>
+
+        <div class="channel-card">
+          <div class="channel-card-header">
+            <span style="font-size:1.3rem;">𝕏</span>
+            <span class="api-badge connected">🟢 Bağlı</span>
+          </div>
+          <div class="channel-card-handle" id="channelXHandle">@umutocguder</div>
+          <div class="channel-card-meta">X API v2 • Threads & Tweets</div>
+        </div>
+      </div>
+
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-        <!-- Meta Account Card -->
+        <!-- Meta & Channel Config Card -->
         <div class="card">
           <div class="card-title">
-            <span>🔌 Meta & Instagram Graph API Bağlantısı</span>
+            <span>⚙️ Kanal & API Yapılandırması</span>
             <span id="apiStatusBadge" class="api-badge sandbox">🧪 Sandbox Modu</span>
           </div>
 
@@ -359,13 +409,13 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
             <label>Çalışma Modu</label>
             <select id="metaModeSelect" class="form-control">
               <option value="sandbox">🧪 Sandbox / Simülasyon (Çevrimdışı Güvenli Test)</option>
-              <option value="live">🚀 Canlı Meta Graph API v20.0</option>
+              <option value="live">🚀 Canlı API Dağıtımı</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Bağlı Instagram Business Hesabı</label>
-            <input type="text" id="metaAccountHandle" class="form-control" value="@noltemimarlik" readonly>
+            <label>Aktif Kanal Profili</label>
+            <input type="text" id="metaAccountHandle" class="form-control" value="@umutocguder / @noltemimarlik" readonly>
           </div>
 
           <div class="form-row">
@@ -380,7 +430,7 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           </div>
 
           <div class="form-group">
-            <label>Meta Access Token (System User / User Token)</label>
+            <label>API Access Token / Bearer Key</label>
             <input type="password" id="metaTokenInput" class="form-control" value="EAAG_SIMULATED_TOKEN_11HOPEM_NOLTE_STUDIO">
           </div>
 
@@ -394,24 +444,30 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           </div>
         </div>
 
-        <!-- Publishing & Live Console -->
+        <!-- Multi-Channel Dispatch & Live Console -->
         <div class="card" style="display:flex; flex-direction:column;">
           <div class="card-title">
-            <span>🚀 Doğrudan Yayınlama & API Konsolu</span>
+            <span>🚀 Çoklu Kanala Dağıtım & Canlı Konsol</span>
             <button id="testPublishBtn" class="btn btn-primary" style="padding:5px 12px; font-size:0.82rem;">
-              ⚡ Gönderiyi Yayınla (Simüle Et)
+              ⚡ Tek Tıkla Dağıt (Cross-Post)
             </button>
           </div>
 
-          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">
-            Meta Graph API v20.0 standartlarında önce <code>/{ig-user-id}/media</code> ile container oluşturulur, ardından <code>/{ig-user-id}/media_publish</code> ile akışta yayınlanır.
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:6px;">
+            Seçili kanalları işaretleyin ve tek tıkla eşzamanlı olarak içeriklerinizi yayınlayın:
           </p>
 
+          <div class="cross-post-checkboxes">
+            <label><input type="checkbox" id="chkInstagram" checked> 📸 Instagram</label>
+            <label><input type="checkbox" id="chkTiktok" checked> 🎵 TikTok</label>
+            <label><input type="checkbox" id="chkLinkedin" checked> 💼 LinkedIn</label>
+            <label><input type="checkbox" id="chkX" checked> 𝕏 X (Twitter)</label>
+          </div>
+
           <div id="metaConsoleOutput" class="api-console" style="flex-grow:1;">
-[Social Studio Meta Client Hazır]
-Mod: Sandbox / Simülasyon Aktif
-Bağlı Hesap: @noltemimarlik (Nolte Mimarlık & Mutfak)
-İzinler: instagram_basic, instagram_content_publish, instagram_manage_insights
+[Social Studio Multi-Channel Engine Hazır]
+Bağlı Hesaplar: Instagram (@umutocguder), TikTok (@umutocguder), LinkedIn (in/umutocguder), X (@umutocguder)
+Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir.
           </div>
         </div>
       </div>
