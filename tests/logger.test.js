@@ -10,7 +10,7 @@ import { TelemetryLogger } from '../src/telemetry/logger.js';
 import { FIREBASE_ECOSYSTEM_CONFIG } from '../src/telemetry/firebaseConfig.js';
 
 test('FIREBASE_ECOSYSTEM_CONFIG matches Umut Öçgüder Firebase account', () => {
-  assert.equal(FIREBASE_ECOSYSTEM_CONFIG.account, 'umutocguder@gmail.com');
+  assert.equal(FIREBASE_ECOSYSTEM_CONFIG.account, 'umutocgdr@gmail.com');
   assert.equal(FIREBASE_ECOSYSTEM_CONFIG.projectId, 'hopem-software-cloud');
   assert.ok(FIREBASE_ECOSYSTEM_CONFIG.errorReportingUrl.includes('clouderrorreporting.googleapis.com'));
 });
