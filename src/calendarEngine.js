@@ -12,6 +12,12 @@ export const MONTHS_TR = [
   'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'
 ];
 
+export const WEEKDAYS_EN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+export const MONTHS_EN = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
 /**
  * Editorial Content Calendar Engine
  */
@@ -149,11 +155,13 @@ export class CalendarEngine {
   }
 
   /**
-   * Returns human-readable title for header (e.g. "Eylül 2026")
+   * Returns human-readable title for header (e.g. "Eylül 2026" or "September 2026")
+   * @param {'tr' | 'en'} [lang='tr']
    * @returns {string}
    */
-  getMonthLabel() {
-    return `${MONTHS_TR[this.month - 1]} ${this.year}`;
+  getMonthLabel(lang = 'tr') {
+    const months = lang === 'en' ? MONTHS_EN : MONTHS_TR;
+    return `${months[this.month - 1]} ${this.year}`;
   }
 }
 

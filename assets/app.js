@@ -34,6 +34,7 @@ import {
   formatContentForChannel,
   publishToChannels
 } from '../src/channelConnectors.js';
+import { I18nEngine } from '../src/i18n.js';
 import { logger } from '../src/telemetry/logger.js';
 
 // Seed demo posts for rich initial experience (Nolte & Umut Öçgüder)
@@ -192,6 +193,7 @@ let calendarEngine;
 let schedulerEngine;
 let analyticsEngine;
 let metaGraphApiClient;
+let i18nEngine;
 
 let currentBrandId = 'umutocguder'; // Default to Umut Öçgüder as requested
 let selectedHookPattern = VIRAL_HOOKS[0].pattern;
@@ -200,12 +202,14 @@ let currentPreviewChannel = 'all';
 let lastGeneratedRawOutput = '';
 
 document.addEventListener('DOMContentLoaded', () => {
+  i18nEngine = new I18nEngine();
   loadStateFromLocal();
   calendarEngine = new CalendarEngine(2026, 9);
   schedulerEngine = new SchedulerEngine('luxury_architecture');
   analyticsEngine = new AnalyticsEngine(gridSimulator.posts);
   metaGraphApiClient = new MetaGraphApiClient();
 
+  initLanguageSwitcher();
   initTabs();
   initBrandSelector();
   initContentStudio();
@@ -216,10 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandManagerView();
   initImportExport();
 
+  applyTranslations();
   updateUI();
 
   logger.info('Social Studio initialized for Umut Öçgüder & Multi-Channel', {
     activeBrandId: currentBrandId,
+    language: i18nEngine.getLanguage(),
     totalBrands: brandManager.getAllBrands().length,
     totalPosts: gridSimulator.posts.length
   });
@@ -246,6 +252,70 @@ function persistState() {
   const json = exportWorkspaceToJson(brandManager.getAllBrands(), gridSimulator.posts);
   localStorage.setItem('social_studio_data_v1', json);
   analyticsEngine = new AnalyticsEngine(gridSimulator.posts);
+}
+
+function initLanguageSwitcher() {
+  const btnTr = document.getElementById('langBtnTr');
+  const btnEn = document.getElementById('langBtnEn');
+
+  if (btnTr) {
+    btnTr.addEventListener('click', () => {
+      setLanguage('tr');
+    });
+  }
+
+  if (btnEn) {
+    btnEn.addEventListener('click', () => {
+      setLanguage('en');
+    });
+  }
+}
+
+function setLanguage(lang) {
+  if (!i18nEngine) return;
+  i18nEngine.setLanguage(lang);
+  applyTranslations();
+  updateUI();
+  logger.info(`Social Studio active language set to: ${lang.toUpperCase()}`);
+}
+
+function applyTranslations() {
+  if (!i18nEngine) return;
+  const lang = i18nEngine.getLanguage();
+  document.documentElement.lang = lang;
+
+  // Translate static text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = i18nEngine.t(key);
+  });
+
+  // Translate input placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    el.placeholder = i18nEngine.t(key);
+  });
+
+  // Toggle active class on language buttons
+  const btnTr = document.getElementById('langBtnTr');
+  const btnEn = document.getElementById('langBtnEn');
+  if (btnTr && btnEn) {
+    btnTr.classList.toggle('active', lang === 'tr');
+    btnEn.classList.toggle('active', lang === 'en');
+  }
+
+  // Update dynamic weekdays
+  renderCalendarWeekdays();
+}
+
+function renderCalendarWeekdays() {
+  const row = document.getElementById('calWeekdaysRow');
+  if (!row) return;
+  const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+  const weekdays = lang === 'en'
+    ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    : ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
+  row.innerHTML = weekdays.map(w => `<div class="cal-weekday">${w}</div>`).join('');
 }
 
 function initTabs() {
@@ -304,13 +374,19 @@ function updateUI() {
       `;
     } else {
       const locationInfo = brand.showroomLocation ? `📍 ${brand.showroomLocation}` : '';
+      const clientLabel = i18nEngine ? i18nEngine.t('brandBanner.client') : 'Müşteri:';
+      const notSpecLabel = i18nEngine ? i18nEngine.t('brandBanner.notSpecified') : 'Belirtilmedi';
       channelsHtml = `
         <span class="brand-pill">🏢 ${brand.sector}</span>
         <span class="brand-pill">🎭 ${brand.tone}</span>
-        <span class="brand-pill">📱 Müşteri: ${brand.clientPhone || 'Belirtilmedi'}</span>
+        <span class="brand-pill">📱 ${clientLabel} ${brand.clientPhone || notSpecLabel}</span>
         ${locationInfo ? `<span class="brand-pill">${locationInfo}</span>` : ''}
       `;
     }
+
+    const totalContentLabel = i18nEngine ? i18nEngine.t('brandBanner.totalContent') : 'Toplam İçerik';
+    const schedPubLabel = i18nEngine ? i18nEngine.t('brandBanner.scheduledPublished') : 'Planlanan / Yayında';
+    const awaitingLabel = i18nEngine ? i18nEngine.t('brandBanner.awaitingApproval') : 'Onay Bekleyen';
 
     banner.innerHTML = `
       <div class="brand-meta">
@@ -321,15 +397,15 @@ function updateUI() {
       </div>
       <div class="brand-stats-row">
         <div class="stat-pill">
-          <span>Toplam İçerik</span>
+          <span>${totalContentLabel}</span>
           <strong>${posts.length}</strong>
         </div>
         <div class="stat-pill">
-          <span>Planlanan / Yayında</span>
+          <span>${schedPubLabel}</span>
           <strong style="color:var(--accent-cyan);">${posts.filter(p => p.status === 'scheduled' || p.status === 'published').length}</strong>
         </div>
         <div class="stat-pill">
-          <span>Onay Bekleyen</span>
+          <span>${awaitingLabel}</span>
           <strong style="color:var(--accent-amber);">${posts.filter(p => p.status === 'awaiting_approval').length}</strong>
         </div>
       </div>
@@ -486,7 +562,7 @@ function initContentStudio() {
       const text = document.getElementById('contentOutput').textContent;
       navigator.clipboard.writeText(text).then(() => {
         const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✅ Kopyalandı!';
+        copyBtn.textContent = i18nEngine ? i18nEngine.t('studio.copiedBtn') : '✅ Kopyalandı!';
         setTimeout(() => { copyBtn.textContent = originalText; }, 2000);
       });
     });
@@ -599,7 +675,9 @@ function renderFormattedChannelOutput() {
   const topic = document.getElementById('topicInput').value.trim() || 'Yazılım & Teknoloji';
 
   if (!lastGeneratedRawOutput) {
-    outputEl.textContent = "Lütfen bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıklayınız.";
+    outputEl.textContent = i18nEngine
+      ? i18nEngine.t('studio.initialPlaceholder')
+      : "Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladığınızda senaryo ve açıklamalar burada oluşturulacaktır.";
     return;
   }
 
@@ -698,7 +776,8 @@ function renderCalendar() {
   const titleEl = document.getElementById('calMonthTitle');
   if (!gridEl || !titleEl) return;
 
-  titleEl.textContent = calendarEngine.getMonthLabel();
+  const activeLang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+  titleEl.textContent = calendarEngine.getMonthLabel(activeLang);
   const cells = calendarEngine.getGridWithPosts(gridSimulator.posts, currentBrandId);
 
   gridEl.innerHTML = cells.map(cell => {
@@ -711,11 +790,13 @@ function renderCalendar() {
       `;
     }).join('');
 
+    const todayText = i18nEngine ? i18nEngine.t('calendar.today').toUpperCase() : 'BUGÜN';
+
     return `
       <div class="cal-day-cell ${!cell.isCurrentMonth ? 'other-month' : ''} ${cell.isToday ? 'today' : ''}" data-date="${cell.isoDate}">
         <div class="cal-day-num">
           <span>${cell.dayNumber}</span>
-          ${cell.isToday ? '<span style="font-size:0.65rem; color:var(--primary);">BUGÜN</span>' : ''}
+          ${cell.isToday ? `<span style="font-size:0.65rem; color:var(--primary);">${todayText}</span>` : ''}
         </div>
         <div style="display:flex; flex-direction:column; gap:3px; overflow:hidden;">
           ${postChips}
@@ -834,27 +915,29 @@ function renderAnalytics() {
 
   const kpis = analyticsEngine.calculateBrandKPIs(currentBrandId);
   const brand = brandManager.getBrandById(currentBrandId);
+  const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+  const locale = lang === 'en' ? 'en-US' : 'tr-TR';
 
   kpiRow.innerHTML = `
     <div class="kpi-card">
-      <span class="kpi-card-label">Toplam Erişim</span>
-      <div class="kpi-card-val">${kpis.totalReach.toLocaleString('tr-TR')}</div>
-      <div class="kpi-card-sub">▲ %22.4 Çoklu Kanal Dağıtımı</div>
+      <span class="kpi-card-label">${i18nEngine ? i18nEngine.t('analytics.reachLabel') : 'Toplam Erişim'}</span>
+      <div class="kpi-card-val">${kpis.totalReach.toLocaleString(locale)}</div>
+      <div class="kpi-card-sub">▲ %22.4 ${lang === 'en' ? 'Cross-Channel Distribution' : 'Çoklu Kanal Dağıtımı'}</div>
     </div>
     <div class="kpi-card">
-      <span class="kpi-card-label">Toplam Gösterim</span>
-      <div class="kpi-card-val">${kpis.totalImpressions.toLocaleString('tr-TR')}</div>
-      <div class="kpi-card-sub">▲ %28.6 TikTok & LinkedIn Keşfet</div>
+      <span class="kpi-card-label">${i18nEngine ? i18nEngine.t('analytics.impressionsLabel') : 'Toplam Gösterim'}</span>
+      <div class="kpi-card-val">${kpis.totalImpressions.toLocaleString(locale)}</div>
+      <div class="kpi-card-sub">▲ %28.6 ${lang === 'en' ? 'TikTok & LinkedIn Explore' : 'TikTok & LinkedIn Keşfet'}</div>
     </div>
     <div class="kpi-card">
-      <span class="kpi-card-label">Etkileşim Oranı (ER)</span>
+      <span class="kpi-card-label">${i18nEngine ? i18nEngine.t('analytics.erLabel') : 'Etkileşim Oranı (ER)'}</span>
       <div class="kpi-card-val">%${kpis.engagementRate}</div>
-      <div class="kpi-card-sub">⭐ Sektör Ortalamasının 2.4x Katı</div>
+      <div class="kpi-card-sub">⭐ ${lang === 'en' ? '2.4x Industry Benchmark' : 'Sektör Ortalamasının 2.4x Katı'}</div>
     </div>
     <div class="kpi-card">
-      <span class="kpi-card-label">Hesap Sağlık Skoru</span>
+      <span class="kpi-card-label">${i18nEngine ? i18nEngine.t('analytics.healthScoreLabel') : 'Hesap Sağlık Skoru'}</span>
       <div class="kpi-card-val" style="color:var(--accent-green);">${kpis.healthScore} <span style="font-size:1rem;">/ 100</span></div>
-      <div class="kpi-card-sub">Cross-Platform Dağıtım Aktif</div>
+      <div class="kpi-card-sub">${lang === 'en' ? 'Cross-Platform Active' : 'Cross-Platform Dağıtım Aktif'}</div>
     </div>
   `;
 
@@ -862,8 +945,8 @@ function renderAnalytics() {
   formatGrid.innerHTML = formats.map(f => `
     <div class="format-bar-row">
       <div class="format-bar-meta">
-        <span>${f.icon} <strong>${f.label}</strong> (${f.count} İçerik)</span>
-        <span style="color:var(--accent-cyan);">%${f.avgEngagement} Ortalama ER • Potansiyel: <strong>${f.viralPotential}</strong></span>
+        <span>${f.icon} <strong>${f.label}</strong> (${f.count} ${lang === 'en' ? 'Posts' : 'İçerik'})</span>
+        <span style="color:var(--accent-cyan);">%${f.avgEngagement} ${lang === 'en' ? 'Avg ER' : 'Ortalama ER'} • ${lang === 'en' ? 'Potential' : 'Potansiyel'}: <strong>${f.viralPotential}</strong></span>
       </div>
       <div class="pillar-bar-wrap">
         <div class="pillar-bar-fill" style="width:${f.avgEngagement * 10}%; background:var(--primary);"></div>
@@ -872,7 +955,8 @@ function renderAnalytics() {
   `).join('');
 
   if (reportOutput) {
-    reportOutput.textContent = analyticsEngine.generateExecutiveReport(brand, 'Eylül 2026');
+    const periodLabel = calendarEngine.getMonthLabel(lang);
+    reportOutput.textContent = analyticsEngine.generateExecutiveReport(brand, periodLabel);
   }
 }
 

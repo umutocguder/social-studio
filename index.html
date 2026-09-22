@@ -23,16 +23,20 @@
       </div>
 
       <div class="brand-selector-wrap">
-        <label for="globalBrandSelect">Aktif Marka:</label>
+        <label for="globalBrandSelect" data-i18n="app.activeBrand">Aktif Marka:</label>
         <select id="globalBrandSelect" class="brand-select"></select>
       </div>
 
       <div class="header-actions">
-        <button id="exportJsonBtn" class="btn btn-outline" title="Yerel Verileri İndir">
+        <div class="lang-switcher">
+          <button id="langBtnTr" class="lang-btn active" data-lang="tr">🇹🇷 TR</button>
+          <button id="langBtnEn" class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </div>
+        <button id="exportJsonBtn" class="btn btn-outline" data-i18n="app.backup" title="Yerel Verileri İndir">
           💾 Yedek Al
         </button>
         <label class="btn btn-outline" style="margin:0; cursor:pointer;" title="Yedek Yükle">
-          📂 Yükle
+          <span data-i18n="app.import">📂 Yükle</span>
           <input type="file" id="importJsonInput" accept=".json" style="display:none;">
         </label>
       </div>
@@ -45,25 +49,25 @@
 
     <!-- Navigation Tabs -->
     <nav class="tabs-bar">
-      <button class="tab-btn active" data-tab="tabStudio">
+      <button class="tab-btn active" data-tab="tabStudio" data-i18n="tabs.studio">
         ✨ Viral Kanca & Senaryo Stüdyosu
       </button>
-      <button class="tab-btn" data-tab="tabCalendar">
+      <button class="tab-btn" data-tab="tabCalendar" data-i18n="tabs.calendar">
         🗓️ Editoryal Takvim & Zamanlama
       </button>
-      <button class="tab-btn" data-tab="tabGrid">
+      <button class="tab-btn" data-tab="tabGrid" data-i18n="tabs.grid">
         📱 Instagram 9-Grid & Sütun Dengesi
       </button>
-      <button class="tab-btn" data-tab="tabAnalytics">
+      <button class="tab-btn" data-tab="tabAnalytics" data-i18n="tabs.analytics">
         📈 Analitik & Büyüme Raporu
       </button>
-      <button class="tab-btn" data-tab="tabMetaApi">
+      <button class="tab-btn" data-tab="tabMetaApi" data-i18n="tabs.channels">
         🌐 Çoklu Kanal (TikTok, X, LinkedIn)
       </button>
-      <button class="tab-btn" data-tab="tabBrands">
+      <button class="tab-btn" data-tab="tabBrands" data-i18n="tabs.brands">
         🏢 Marka & Müşteri Portföyü
       </button>
-      <button class="tab-btn" data-tab="tabStrategy">
+      <button class="tab-btn" data-tab="tabStrategy" data-i18n="tabs.strategy">
         📚 2026 Büyüme Rehberi
       </button>
     </nav>
@@ -74,67 +78,67 @@
         <!-- Studio Controls -->
         <div class="card">
           <div class="card-title">
-            <span>🪝 Viral Kanca & Konsept Belirle</span>
-            <span style="font-size:0.8rem; color:var(--text-dim);">Psychological Hook Engine</span>
+            <span data-i18n="studio.hookSectionTitle">🪝 Viral Kanca & Konsept Belirle</span>
+            <span style="font-size:0.8rem; color:var(--text-dim);" data-i18n="studio.hookSubtitle">Psychological Hook Engine</span>
           </div>
 
           <div class="form-group">
-            <label>Kanca Kategorisi</label>
+            <label data-i18n="studio.hookCategoryLabel">Kanca Kategorisi</label>
             <div id="hookCategories" class="hook-category-chips"></div>
           </div>
 
           <div class="form-group">
-            <label>Viral Kanca Şablonu Seç (Tıkla ve Uygula)</label>
+            <label data-i18n="studio.hookSelectLabel">Viral Kanca Şablonu Seç (Tıkla ve Uygula)</label>
             <div id="hookList" class="hook-list"></div>
           </div>
 
           <div class="form-group" id="noltePresetWrap">
-            <label>🏛️ Nolte Mimarlık Gerçek Projeleri (Tek Tıkla Senaryo)</label>
+            <label data-i18n="studio.noltePresetsLabel">🏛️ Nolte Mimarlık Gerçek Projeleri (Tek Tıkla Senaryo)</label>
             <div id="noltePresetChips" class="nolte-preset-chips"></div>
           </div>
 
           <div class="form-group" id="umutPresetWrap" style="display:none;">
-            <label>💻 Umut Öçgüder Yazılım & Tech Girişimcilik (Tek Tıkla Senaryo)</label>
+            <label data-i18n="studio.umutPresetsLabel">💻 Umut Öçgüder Yazılım & Tech Girişimcilik (Tek Tıkla Senaryo)</label>
             <div id="umutPresetChips" class="nolte-preset-chips"></div>
           </div>
 
           <div class="form-group">
-            <label for="topicInput">İçerik Konusu / Anahtar Başlık *</label>
-            <input type="text" id="topicInput" class="form-control" placeholder="Örn: Ada Mutfak Tasarımı, Keten Gömlek Kombini, Harita Bilgisi">
+            <label for="topicInput" data-i18n="studio.topicLabel">İçerik Konusu / Anahtar Başlık *</label>
+            <input type="text" id="topicInput" class="form-control" data-i18n-placeholder="studio.topicPlaceholder" placeholder="Örn: Ada Mutfak Tasarımı, Clean Architecture, SaaS Mimarisi">
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="formatSelect">İçerik Formatı</label>
+              <label for="formatSelect" data-i18n="studio.formatLabel">İçerik Formatı</label>
               <select id="formatSelect" class="form-control">
-                <option value="reels">🎬 Reels / TikTok Senaryosu</option>
-                <option value="carousel">📑 Kaydırmalı Post (Carousel)</option>
-                <option value="caption">📝 Tekil Post & Açıklama Metni</option>
+                <option value="reels" data-i18n="studio.formatReels">🎬 Reels / TikTok Senaryosu</option>
+                <option value="carousel" data-i18n="studio.formatCarousel">📑 Kaydırmalı Post (Carousel)</option>
+                <option value="caption" data-i18n="studio.formatCaption">📝 Tekil Post & Açıklama Metni</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="ctaSelect">Eyleme Çağrı (CTA)</label>
+              <label for="ctaSelect" data-i18n="studio.ctaLabel">Eyleme Çağrı (CTA)</label>
               <select id="ctaSelect" class="form-control">
-                <option value="save">📌 Kaydet Odaklı (Sıcak Kitle)</option>
-                <option value="comment">👇 Yorum Odaklı (Etkileşim)</option>
-                <option value="dm">✉️ DM / Bilgi Odaklı (Dönüşüm)</option>
-                <option value="share">🚀 Paylaş Odaklı (Viral Uzanım)</option>
+                <option value="save" data-i18n="studio.ctaSave">📌 Kaydet Odaklı (Sıcak Kitle)</option>
+                <option value="comment" data-i18n="studio.ctaComment">👇 Yorum Odaklı (Etkileşim)</option>
+                <option value="dm" data-i18n="studio.ctaDm">✉️ DM / Bilgi Odaklı (Dönüşüm)</option>
+                <option value="share" data-i18n="studio.ctaShare">🚀 Paylaş Odaklı (Viral Uzanım)</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="pillarSelect">İçerik Sütunu (Content Pillar)</label>
+            <label for="pillarSelect" data-i18n="studio.pillarLabel">İçerik Sütunu (Content Pillar)</label>
             <select id="pillarSelect" class="form-control">
-              <option value="value">💡 Eğitim & Değer (%40)</option>
-              <option value="social_proof">⭐ Sosyal Kanıt & Referans (%30)</option>
-              <option value="behind_scenes">🎬 Perde Arkası & Kültür (%20)</option>
-              <option value="conversion">🎯 Doğrudan Satış & Teklif (%10)</option>
+              <option value="value" data-i18n="studio.pillarValue">💡 Eğitim & Değer (%40)</option>
+              <option value="social_proof" data-i18n="studio.pillarSocialProof">⭐ Sosyal Kanıt & Referans (%30)</option>
+              <option value="behind_scenes" data-i18n="studio.pillarBehindScenes">🎬 Perde Arkası & Kültür (%20)</option>
+              <option value="conversion" data-i18n="studio.pillarConversion">🎯 Doğrudan Satış & Teklif (%10)</option>
             </select>
           </div>
 
-          <button id="generateContentBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">
+          <button id="generateContentBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;" data-i18n="studio.generateBtn">
             ⚡ Senaryo & Metni Üret
           </button>
         </div>
@@ -142,30 +146,26 @@
         <!-- Studio Output -->
         <div class="card" style="display:flex; flex-direction:column;">
           <div class="card-title">
-            <span>📋 Üretilen İçerik & Senaryo Çıktısı</span>
+            <span data-i18n="studio.outputTitle">📋 Üretilen İçerik & Senaryo Çıktısı</span>
             <div style="display:flex; gap:8px;">
-              <button id="copyOutputBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;">
+              <button id="copyOutputBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" data-i18n="studio.copyBtn">
                 📋 Kopyala
               </button>
-              <button id="addToGridBtn" class="btn btn-primary" style="padding:4px 10px; font-size:0.8rem;">
+              <button id="addToGridBtn" class="btn btn-primary" style="padding:4px 10px; font-size:0.8rem;" data-i18n="studio.addToGridBtn">
                 ➕ 9-Grid'e Ekle
               </button>
             </div>
+          </div>
           <div class="channel-preview-bar" id="channelPreviewBar">
-            <button class="channel-tab-btn active" data-channel="all">✨ Varsayılan</button>
-            <button class="channel-tab-btn" data-channel="x">𝕏 X (Thread)</button>
-            <button class="channel-tab-btn" data-channel="linkedin">💼 LinkedIn</button>
-            <button class="channel-tab-btn" data-channel="tiktok">🎵 TikTok</button>
-            <button class="channel-tab-btn" data-channel="instagram">📸 Instagram</button>
+            <button class="channel-tab-btn active" data-channel="all" data-i18n="studio.previewDefault">✨ Varsayılan</button>
+            <button class="channel-tab-btn" data-channel="x" data-i18n="studio.previewX">𝕏 X (Thread)</button>
+            <button class="channel-tab-btn" data-channel="linkedin" data-i18n="studio.previewLinkedin">💼 LinkedIn</button>
+            <button class="channel-tab-btn" data-channel="tiktok" data-i18n="studio.previewTiktok">🎵 TikTok</button>
+            <button class="channel-tab-btn" data-channel="instagram" data-i18n="studio.previewInstagram">📸 Instagram</button>
           </div>
 
           <div id="contentOutput" class="output-box" style="flex-grow:1;">
-Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladığınızda;
-1. 0-3 saniye kanca (hook)
-2. 3-12 saniye tutundurma (retention)
-3. Değer ve çözüm maddeleri
-4. Eyleme çağrı (CTA)
-5. İlgili markanın etiketleri ve hazır açıklama metni burada oluşturulacaktır.
+Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladığınızda senaryo ve açıklamalar burada oluşturulacaktır.
           </div>
         </div>
       </div>
@@ -177,23 +177,23 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
         <div class="card">
           <div class="calendar-topbar">
             <div class="calendar-nav">
-              <button id="calPrevMonthBtn" class="btn btn-outline" style="padding:6px 14px;">&larr; Önceki</button>
+              <button id="calPrevMonthBtn" class="btn btn-outline" style="padding:6px 14px;" data-i18n="calendar.prevMonth">&larr; Önceki</button>
               <h3 id="calMonthTitle" class="calendar-month-title">Eylül 2026</h3>
-              <button id="calNextMonthBtn" class="btn btn-outline" style="padding:6px 14px;">Sonraki &rarr;</button>
-              <button id="calTodayBtn" class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;">Bugün</button>
+              <button id="calNextMonthBtn" class="btn btn-outline" style="padding:6px 14px;" data-i18n="calendar.nextMonth">Sonraki &rarr;</button>
+              <button id="calTodayBtn" class="btn btn-outline" style="padding:6px 12px; font-size:0.8rem;" data-i18n="calendar.today">Bugün</button>
             </div>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button id="autoScheduleBtn" class="btn btn-primary" title="Sıradaki en uygun boş saat slotuna otomatik planla">
+              <button id="autoScheduleBtn" class="btn btn-primary" title="Sıradaki en uygun boş saat slotuna otomatik planla" data-i18n="calendar.autoScheduleBtn">
                 ⚡ Akıllı Zamanla (Auto-Schedule)
               </button>
-              <button id="exportIcsBtn" class="btn btn-outline" title="Apple Calendar veya Google Calendar için .ics indir">
+              <button id="exportIcsBtn" class="btn btn-outline" title="Apple Calendar veya Google Calendar için .ics indir" data-i18n="calendar.exportIcsBtn">
                 📥 .ICS Takvim İndir
               </button>
             </div>
           </div>
 
-          <div style="display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; margin-top:14px; text-align:center;">
+          <div id="calWeekdaysRow" style="display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; margin-top:14px; text-align:center;">
             <div class="cal-weekday">Pzt</div>
             <div class="cal-weekday">Sal</div>
             <div class="cal-weekday">Çar</div>
@@ -231,7 +231,7 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
         <div>
           <div class="phone-mockup">
             <div class="phone-header">
-              <h4 id="phoneHandle">Instagram Önizleme</h4>
+              <h4 id="phoneHandle" data-i18n="grid.previewTitle">Instagram Önizleme</h4>
               <p style="font-size:0.75rem; color:var(--text-dim);">Canlı 3x3 Izgara Tasarımı</p>
             </div>
             <div class="phone-stats">
@@ -250,17 +250,17 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           <!-- Quick Add Form -->
           <div class="card">
             <div class="card-title">
-              <span>➕ Hızlı Gönderi Ekle</span>
-              <span style="font-size:0.8rem; color:var(--text-dim);">Izgarayı Doldur</span>
+              <span data-i18n="grid.quickAddTitle">➕ Hızlı Gönderi Ekle</span>
+              <span style="font-size:0.8rem; color:var(--text-dim);" data-i18n="grid.quickAddSubtitle">Izgarayı Doldur</span>
             </div>
             <form id="quickAddPostForm">
               <div class="form-group">
-                <label for="quickPostTitle">Gönderi Başlığı / Konusu *</label>
+                <label for="quickPostTitle" data-i18n="grid.postTitleLabel">Gönderi Başlığı / Konusu *</label>
                 <input type="text" id="quickPostTitle" class="form-control" placeholder="Örn: 2026 Mutfak Trendleri" required>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="quickPostFormat">Format</label>
+                  <label for="quickPostFormat" data-i18n="grid.postFormatLabel">Format</label>
                   <select id="quickPostFormat" class="form-control">
                     <option value="reels">🎬 Reels</option>
                     <option value="carousel">📑 Carousel</option>
@@ -268,20 +268,20 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="quickPostPillar">Sütun</label>
+                  <label for="quickPostPillar" data-i18n="grid.postPillarLabel">Sütun</label>
                   <select id="quickPostPillar" class="form-control">
-                    <option value="value">💡 Değer</option>
-                    <option value="social_proof">⭐ Referans</option>
-                    <option value="behind_scenes">🎬 Perde Arkası</option>
-                    <option value="conversion">🎯 Satış</option>
+                    <option value="value" data-i18n="studio.pillarValue">💡 Eğitim & Değer (%40)</option>
+                    <option value="social_proof" data-i18n="studio.pillarSocialProof">⭐ Sosyal Kanıt & Referans (%30)</option>
+                    <option value="behind_scenes" data-i18n="studio.pillarBehindScenes">🎬 Perde Arkası & Kültür (%20)</option>
+                    <option value="conversion" data-i18n="studio.pillarConversion">🎯 Doğrudan Satış & Teklif (%10)</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label for="quickPostDate">Yayın Tarihi</label>
+                <label for="quickPostDate" data-i18n="grid.postDateLabel">Yayın Tarihi</label>
                 <input type="date" id="quickPostDate" class="form-control" value="2026-09-15">
               </div>
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="grid.addBtn">
                 Izgaraya Gönderi Ekle
               </button>
             </form>
@@ -290,8 +290,8 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           <!-- Content Pillar Meter -->
           <div class="card">
             <div class="card-title">
-              <span>📊 İçerik Sütunu Dengesi (Pillar Balance)</span>
-              <span style="font-size:0.8rem; color:var(--text-dim);">Algoritma Dostu Dağılım</span>
+              <span data-i18n="grid.pillarBalanceTitle">📊 İçerik Sütunu Dengesi (Pillar Balance)</span>
+              <span style="font-size:0.8rem; color:var(--text-dim);" data-i18n="grid.pillarBalanceSubtitle">Algoritma Dostu Dağılım</span>
             </div>
             <p style="font-size:0.82rem; color:var(--text-muted);">
               Sürekli satış yapmak veya sadece bilgi vermek hesabı yorar. İdeal dağılım: %40 Değer, %30 Sosyal Kanıt, %20 Samimiyet, %10 Doğrudan Teklif.
@@ -316,9 +316,9 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           <!-- Format Performance -->
           <div class="card">
             <div class="card-title">
-              <span>🎯 Format Bazlı Etkileşim & Viral Potansiyel</span>
+              <span data-i18n="analytics.formatTitle">🎯 Format Bazlı Etkileşim & Viral Potansiyel</span>
             </div>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;" data-i18n="analytics.formatDesc">
               Reels izlenme derinliği kazandırırken, Carousel kaydetme ve müşteri keşif oranını artırır.
             </p>
             <div id="formatBarGrid" class="format-bar-grid">
@@ -329,7 +329,7 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           <!-- Best Time Matrix -->
           <div class="card">
             <div class="card-title">
-              <span>🔥 En Yüksek Etkileşim Saatleri (Nolte & Konya)</span>
+              <span data-i18n="analytics.bestHoursTitle">🔥 En Yüksek Etkileşim Saatleri</span>
             </div>
             <div style="padding:10px 0; font-size:0.85rem; color:var(--text-muted); line-height:1.7;">
               <div style="margin-bottom:8px;">🌟 <strong>Pazar 19:30 - 21:00:</strong> Zirve Etkileşim (%8.9 ER) — Villa & Salon projeleri için ideal.</div>
@@ -340,13 +340,13 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           </div>
         </div>
 
-        <!-- Executive Report for Mimar Aysun Özçelik -->
+        <!-- Executive Report -->
         <div class="card">
           <div class="card-title">
-            <span>📋 Mimar Aysun Özçelik İçin Yönetici Özeti (Executive Report)</span>
+            <span data-i18n="analytics.reportTitle">📋 Yönetici & Müşteri Özeti (Executive Report)</span>
             <div style="display:flex; gap:8px;">
-              <button id="copyExecReportBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;">📋 Raporu Kopyala</button>
-              <button id="waExecReportBtn" class="btn btn-whatsapp" style="padding:4px 10px; font-size:0.8rem;">📱 WhatsApp ile Gönder</button>
+              <button id="copyExecReportBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.8rem;" data-i18n="analytics.copyReportBtn">📋 Raporu Kopyala</button>
+              <button id="waExecReportBtn" class="btn btn-whatsapp" style="padding:4px 10px; font-size:0.8rem;" data-i18n="analytics.sendWaBtn">📱 WhatsApp ile Gönder</button>
             </div>
           </div>
           <div id="executiveReportOutput" class="output-box" style="white-space:pre-wrap; max-height:260px; font-size:0.88rem;">
@@ -401,20 +401,20 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
         <!-- Meta & Channel Config Card -->
         <div class="card">
           <div class="card-title">
-            <span>⚙️ Kanal & API Yapılandırması</span>
+            <span data-i18n="channels.metaConfigTitle">⚙️ Kanal & API Yapılandırması</span>
             <span id="apiStatusBadge" class="api-badge sandbox">🧪 Sandbox Modu</span>
           </div>
 
           <div class="form-group">
-            <label>Çalışma Modu</label>
+            <label data-i18n="channels.modeLabel">Çalışma Modu</label>
             <select id="metaModeSelect" class="form-control">
-              <option value="sandbox">🧪 Sandbox / Simülasyon (Çevrimdışı Güvenli Test)</option>
-              <option value="live">🚀 Canlı API Dağıtımı</option>
+              <option value="sandbox" data-i18n="channels.modeSandbox">🧪 Sandbox / Simülasyon (Çevrimdışı Güvenli Test)</option>
+              <option value="live" data-i18n="channels.modeLive">🚀 Canlı API Dağıtımı</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Aktif Kanal Profili</label>
+            <label data-i18n="channels.activeProfileLabel">Aktif Kanal Profili</label>
             <input type="text" id="metaAccountHandle" class="form-control" value="@umutocguder / @noltemimarlik" readonly>
           </div>
 
@@ -430,15 +430,15 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
           </div>
 
           <div class="form-group">
-            <label>API Access Token / Bearer Key</label>
+            <label data-i18n="channels.tokenLabel">API Access Token / Bearer Key</label>
             <input type="password" id="metaTokenInput" class="form-control" value="EAAG_SIMULATED_TOKEN_11HOPEM_NOLTE_STUDIO">
           </div>
 
           <div style="display:flex; gap:10px;">
-            <button id="verifyTokenBtn" class="btn btn-outline" style="flex:1;">
+            <button id="verifyTokenBtn" class="btn btn-outline" style="flex:1;" data-i18n="channels.verifyBtn">
               🔍 Token ve İzinleri Doğrula
             </button>
-            <button id="fetchProfileBtn" class="btn btn-primary" style="flex:1;">
+            <button id="fetchProfileBtn" class="btn btn-primary" style="flex:1;" data-i18n="channels.profileBtn">
               👤 Profil Bilgisi Çek
             </button>
           </div>
@@ -447,13 +447,13 @@ Sol taraftan bir kanca ve konu seçip 'Senaryo & Metni Üret' butonuna tıkladı
         <!-- Multi-Channel Dispatch & Live Console -->
         <div class="card" style="display:flex; flex-direction:column;">
           <div class="card-title">
-            <span>🚀 Çoklu Kanala Dağıtım & Canlı Konsol</span>
-            <button id="testPublishBtn" class="btn btn-primary" style="padding:5px 12px; font-size:0.82rem;">
+            <span data-i18n="channels.dispatchTitle">🚀 Çoklu Kanala Dağıtım & Canlı Konsol</span>
+            <button id="testPublishBtn" class="btn btn-primary" style="padding:5px 12px; font-size:0.82rem;" data-i18n="channels.crossPostBtn">
               ⚡ Tek Tıkla Dağıt (Cross-Post)
             </button>
           </div>
 
-          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:6px;">
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:6px;" data-i18n="channels.crossPostDesc">
             Seçili kanalları işaretleyin ve tek tıkla eşzamanlı olarak içeriklerinizi yayınlayın:
           </p>
 
@@ -478,32 +478,32 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
       <div class="studio-layout">
         <div class="card">
           <div class="card-title">
-            <span>➕ Yeni Müşteri / Marka Ekle</span>
+            <span data-i18n="brands.addTitle">➕ Yeni Müşteri / Marka Ekle</span>
           </div>
           <form id="newBrandForm">
             <div class="form-group">
-              <label for="newBrandName">Marka Adı *</label>
+              <label for="newBrandName" data-i18n="brands.nameLabel">Marka Adı *</label>
               <input type="text" id="newBrandName" class="form-control" placeholder="Örn: Kahve Dünyası, Özgür Diş Kliniği" required>
             </div>
             <div class="form-group">
-              <label for="newBrandHandle">Instagram Kullanıcı Adı</label>
+              <label for="newBrandHandle" data-i18n="brands.handleLabel">Instagram Kullanıcı Adı</label>
               <input type="text" id="newBrandHandle" class="form-control" placeholder="@markaadi" required>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="newBrandSector">Sektör</label>
+                <label for="newBrandSector" data-i18n="brands.sectorLabel">Sektör</label>
                 <input type="text" id="newBrandSector" class="form-control" placeholder="Örn: Sağlık & Diş Hekimliği">
               </div>
               <div class="form-group">
-                <label for="newBrandPhone">WhatsApp Onay Hattı</label>
+                <label for="newBrandPhone" data-i18n="brands.phoneLabel">WhatsApp Onay Hattı</label>
                 <input type="tel" id="newBrandPhone" class="form-control" placeholder="05XX XXX XX XX">
               </div>
             </div>
             <div class="form-group">
-              <label for="newBrandTone">Marka İletişim Tonu</label>
+              <label for="newBrandTone" data-i18n="brands.toneLabel">Marka İletişim Tonu</label>
               <input type="text" id="newBrandTone" class="form-control" placeholder="Örn: Samimi, bilgilendirici, lüks ve güvenilir">
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="brands.submitBtn">
               Markayı Kaydet ve Yönetmeye Başla
             </button>
           </form>
@@ -511,7 +511,7 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
 
         <div class="card">
           <div class="card-title">
-            <span>🏢 Mevcut Müşteri Portföyünüz</span>
+            <span data-i18n="brands.portfolioTitle">🏢 Mevcut Müşteri Portföyünüz</span>
           </div>
           <div id="brandList">
             <!-- Rendered by JS -->
@@ -523,38 +523,38 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
     <!-- TAB 4: GROWTH & STRATEGY GUIDE -->
     <section id="tabStrategy" class="tab-view">
       <div class="card" style="margin-bottom: 24px;">
-        <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--primary);">
+        <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--primary);" data-i18n="strategy.title">
           🚀 Sosyal Medya Yöneticisinin Altın Kuralları (2026 Güncellemesi)
         </h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;" data-i18n="strategy.desc">
           Sosyal medya algoritmaları artık doğrudan "İzlenme Süresi (Watch Time)" ve "Kaydet / Paylaş (Save & Share)" oranlarına göre dağıtım yapmaktadır. Müşterileriniz için içerik üretirken şu formülü takip edin:
         </p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
           <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-            <h4 style="color:#38bdf8; margin-bottom:8px;">1. İlk 3 Saniye Kuralı (Visual Hook)</h4>
-            <p style="font-size:0.85rem; color:var(--text-muted);">
+            <h4 style="color:#38bdf8; margin-bottom:8px;" data-i18n="strategy.rule1Title">1. İlk 3 Saniye Kuralı (Visual Hook)</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="strategy.rule1Desc">
               Videonun başında asla "Merhaba arkadaşlar bugün..." diye başlamayın. İzleyici 1.5 saniyede karar verir. Direkt problemle veya merak uyandıran soruyla girin.
             </p>
           </div>
 
           <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-            <h4 style="color:#34d399; margin-bottom:8px;">2. Carousel Kaydırma Döngüsü</h4>
-            <p style="font-size:0.85rem; color:var(--text-muted);">
+            <h4 style="color:#34d399; margin-bottom:8px;" data-i18n="strategy.rule2Title">2. Carousel Kaydırma Döngüsü</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="strategy.rule2Desc">
               İlk slaytta yüksek merak uyandırın, ikinci slaytta "Neden bu önemli?" sorusunu cevaplayın, 3-5 arası hap çözümleri verin ve son slaytta mutlaka "KAYDET" çağrısı yapın.
             </p>
           </div>
 
           <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-            <h4 style="color:#f472b6; margin-bottom:8px;">3. Müşteri İletişim Otomasyonu</h4>
-            <p style="font-size:0.85rem; color:var(--text-muted);">
+            <h4 style="color:#f472b6; margin-bottom:8px;" data-i18n="strategy.rule3Title">3. Müşteri İletişim Otomasyonu</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="strategy.rule3Desc">
               Müşteriye dağınık fotoğraflar atmayın. Social Studio üzerinden tek tıkla üretilen hazır WhatsApp Onay Kartı ile metin ve tasarımı resmi bir onaya bağlayın.
             </p>
           </div>
 
           <div style="background:var(--bg-card); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-            <h4 style="color:#fbbf24; margin-bottom:8px;">4. 9-Grid Görsel Ritim</h4>
-            <p style="font-size:0.85rem; color:var(--text-muted);">
+            <h4 style="color:#fbbf24; margin-bottom:8px;" data-i18n="strategy.rule4Title">4. 9-Grid Görsel Ritim</h4>
+            <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="strategy.rule4Desc">
               Profil ziyaretçilerinin takip et butonuna basmasını sağlayan şey profildeki düzen harmonisidir. Yan yana 3 reels kapağı yerine fotoğraf-alıntı-video dengesi kurun.
             </p>
           </div>
@@ -568,14 +568,14 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
     <div class="modal-box">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
         <div>
-          <h3 id="modalPostTitle" style="font-size:1.25rem;">Gönderi Detayı</h3>
+          <h3 id="modalPostTitle" style="font-size:1.25rem;" data-i18n="modal.detailTitle">Gönderi Detayı</h3>
           <p id="modalPostFormat" style="font-size:0.8rem; color:var(--text-dim); margin-top:2px;"></p>
         </div>
         <button id="closeModalBtn" style="background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
       </div>
 
       <div class="form-group">
-        <label for="modalStatusSelect">İçerik Durumu</label>
+        <label for="modalStatusSelect" data-i18n="modal.statusLabel">İçerik Durumu</label>
         <select id="modalStatusSelect" class="form-control">
           <option value="idea">💡 Fikir / Not</option>
           <option value="draft">📝 Metin Taslağı</option>
@@ -588,12 +588,12 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
       </div>
 
       <div class="form-group">
-        <label>Açıklama Metni (Caption)</label>
+        <label data-i18n="modal.captionLabel">Açıklama Metni (Caption)</label>
         <div id="modalPostCaption" class="output-box" style="max-height:180px;"></div>
       </div>
 
       <div style="display:flex; gap:10px; margin-top:20px;">
-        <button id="modalWhatsAppBtn" class="btn btn-whatsapp" style="flex:1;">
+        <button id="modalWhatsAppBtn" class="btn btn-whatsapp" style="flex:1;" data-i18n="modal.sendWaApproval">
           📱 Müşteriye WhatsApp Onay Mesajı Gönder
         </button>
       </div>
@@ -603,13 +603,13 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
   <!-- Footer -->
   <footer class="container">
     <div class="footer-inner">
-      <div>
+      <div data-i18n="app.footerCopyright">
         © 2026 Social Studio. Tüm hakları saklıdır.
       </div>
       <div class="footer-links">
-        <a href="legal/kvkk.html">KVKK Aydınlatma</a>
-        <a href="legal/gizlilik.html">Gizlilik Politikası</a>
-        <a href="legal/kullanim-kosullari.html">Kullanım Koşulları</a>
+        <a href="legal/kvkk.html" data-i18n="app.footerKvkk">KVKK Aydınlatma</a>
+        <a href="legal/gizlilik.html" data-i18n="app.footerPrivacy">Gizlilik Politikası</a>
+        <a href="legal/kullanim-kosullari.html" data-i18n="app.footerTerms">Kullanım Koşulları</a>
       </div>
       <div>
         Created by <span style="color:var(--primary); font-weight:700;">11hopem</span> (11 Hopem Software Ltd. Şti.)
