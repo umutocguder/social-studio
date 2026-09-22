@@ -85,3 +85,30 @@
   - `index.html`, `assets/style.css`, `assets/app.js`, `WORKLOG.md`
 - **Mevcut Durum**:
   - `npm test` -> 44 test başarılı, 0 hata.
+
+### [2026-09-22 10:15] TR / EN Çift Dil (Bilingual) Desteği & Konum Bazlı Otomatik Algılama Tamamlandı
+- **Görev ve Amaç**: Kullanıcının "tr eng desteği getir sayfaya girdiği yere göre" talebi doğrultusunda Social Studio'ya Türkçe ve İngilizce çift dil desteği eklenmesi, ziyaretçinin konum ve tarayıcı diline göre otomatik dil tespiti yapılması, manuel geçiş düğmesi eklenmesi ve tüm arayüzün dinamik olarak yerelleştirilmesi.
+- **Teknik Kararlar ve Mimarî**:
+  1. **I18n Motoru (`src/i18n.js`)**:
+     - `detectVisitorLanguage()`: Önce `localStorage` (`social_studio_lang`), ardından tarayıcı dili (`navigator.language` tr ile başlıyorsa), ardından zaman dilimi (`Intl.DateTimeFormat` timezone Istanbul/Turkey içeriyorsa) kontrol edilir; eşleşme yoksa uluslararası ziyaretçiler için doğrudan İngilizce (`en`) seçilir.
+     - `I18nEngine`: Dil durumu, `t(key, params)` anahtar sorgulama ve `localStorage` kalıcılığı.
+     - `translateKey()`: Nokta notasyonu (`tabs.studio`), parametre yerleştirme (`{name}`) ve Türkçe'ye zarif geri dönüş (graceful fallback).
+     - Kapsamlı sözlükler: Uygulama başlığı, 7 sekme, marka banner'ı, viral kanca stüdyosu, editoryal takvim, Instagram 9-grid, analitik & yönetici raporu, çoklu kanal konsolu, müşteri portföyü ve 2026 büyüme rehberi.
+  2. **Takvim Motoru Yerelleştirmesi (`src/calendarEngine.js`)**:
+     - `WEEKDAYS_EN` ve `MONTHS_EN` sabitleri eklendi.
+     - `getMonthLabel(lang = 'tr')` fonksiyonu aktif dile göre ay ve yıl etiketi döndürecek şekilde güncellendi.
+  3. **Arayüz & Tasarım (`index.html`, `assets/style.css`, `assets/app.js`)**:
+     - Başlık alanına `🇹🇷 TR | 🇬🇧 EN` buton grubu (`.lang-switcher`, `.lang-btn`) entegre edildi.
+     - Tüm HTML öğelerine `data-i18n`, `data-i18n-placeholder`, `data-i18n-title` etiketleri eklendi.
+     - `applyTranslations()` ile tüm etiketler ve takvim haftanın günleri (Pzt-Paz / Mon-Sun) tek tıkla canlı olarak güncellenir.
+  4. **Birim Testleri (`tests/i18n.test.js`)**:
+     - Dil tespiti (zorunlu dil, tarayıcı dili, saat dilimi, uluslararası varsayılan), sözlük tutarlılığı, parametre yerleştirme ve takvim ay/gün etiketlerini doğrulayan 9 yeni birim testi eklendi.
+     - Toplam birim test sayısı: 53/53 (%100) başarı.
+- **Etkilenen Dosyalar**:
+  - `src/i18n.js`, `tests/i18n.test.js`
+  - `src/calendarEngine.js`
+  - `index.html`, `assets/style.css`, `assets/app.js`, `WORKLOG.md`
+- **Mevcut Durum**:
+  - `npm test` -> 53 test başarılı, 0 hata.
+  - Canlı Vercel: `https://social-studio-app.vercel.app`
+
