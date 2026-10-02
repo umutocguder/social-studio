@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-10-02T21:31:42.413Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "bbaeb778e32675467c2c69690b3283732d5490953fad7be69b187f6fd875f28a",
+    "fileSize": 4821,
+    "backupFile": "social_studio_backup_2026-10-02T21-31-42-412Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-02T21:31:42.135Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "fa0130f3d5598c2aad459543ec11abf3dc03ef5df7cc07b0f37ac1edd752e714",
+    "fileSize": 4821,
+    "backupFile": "social_studio_backup_2026-10-02T21-31-42-135Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-02T21:31:41.930Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "dbbab770411704b2acd9a8d6e3304df236be8439225a6feae3784102552c6b95",
+    "fileSize": 4821,
+    "backupFile": "social_studio_backup_2026-10-02T21-31-41-930Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  }
+]

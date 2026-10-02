@@ -5,6 +5,8 @@
   "main": "src/brandManager.js",
   "type": "module",
   "scripts": {
+    "backup": "node scripts/backupWorkspace.js",
+    "pretest": "node scripts/backupWorkspace.js",
     "test": "node --test 'tests/**/*.test.js'",
     "start": "npx serve ."
   },

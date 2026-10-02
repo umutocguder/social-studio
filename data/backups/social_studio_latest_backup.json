@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "exportedAt": "2026-10-02T21:31:42.412Z",
+  "creator": "Social Studio by 11hopem",
+  "brands": [
+    {
+      "id": "nolte-mimarlik",
+      "name": "Nolte Mimarlık",
+      "handle": "@noltemimarlik",
+      "sector": "İç Mimarlık & Lüks Konut",
+      "tone": "Rafine, lüks, mimari ve estetik",
+      "founder": "Mimar Aysun Özçelik",
+      "showroomLocation": "Şeyh Sadrettin Mah. Ferit Paşa Cad. Meram / KONYA",
+      "website": "https://doryamimarlik.com.tr",
+      "officialBrands": [
+        "Nolte Küchen",
+        "Nolte Möbel",
+        "Trend Küchen",
+        "Masa & Sandalye Grubu"
+      ],
+      "primaryColor": "#c5a059",
+      "secondaryColor": "#14161d",
+      "targetAudience": "Villa ve rezidans sahipleri, mimari meraklıları",
+      "defaultHashtags": [
+        "#noltemimarlik",
+        "#icmimarlik",
+        "#villatasarimi",
+        "#luxuryinteriors",
+        "#almanmuhendisligi",
+        "#konyaicmimarlik"
+      ],
+      "clientPhone": "0535 403 13 63"
+    },
+    {
+      "id": "butik-platform",
+      "name": "Maison Butik",
+      "handle": "@maisonbutik",
+      "sector": "Moda & Kadın Giyim",
+      "tone": "Samimi, enerjik, trend ve stil sahibi",
+      "primaryColor": "#e11d48",
+      "secondaryColor": "#fff1f2",
+      "targetAudience": "Şık giyinmeyi seven 20-45 yaş kadınlar",
+      "defaultHashtags": [
+        "#butikgiyim",
+        "#kombinonerileri",
+        "#modatrendleri",
+        "#stilrehberi",
+        "#yenisezon"
+      ],
+      "clientPhone": "0535 403 13 63"
+    },
+    {
+      "id": "osman-savas",
+      "name": "Osman Savaş Akademi",
+      "handle": "@osmansavasakademi",
+      "sector": "Eğitim & KPSS / YKS Coğrafya",
+      "tone": "Motive edici, öğretici, dinamik ve net",
+      "primaryColor": "#0284c7",
+      "secondaryColor": "#0f172a",
+      "targetAudience": "KPSS ve YKS sınavlarına hazırlanan öğrenciler",
+      "defaultHashtags": [
+        "#kpsscografya",
+        "#ykscografya",
+        "#sorucozumu",
+        "#haritabilgisi",
+        "#sinavahazirlik"
+      ],
+      "clientPhone": "0535 403 13 63"
+    },
+    {
+      "id": "ocguderler-sigorta",
+      "name": "Öçgüder Sigorta",
+      "handle": "@ocgudersigorta",
+      "sector": "Sigorta & Finansal Güvence",
+      "tone": "Güvenilir, kurumsal, koruyucu ve açıklayıcı",
+      "primaryColor": "#d97706",
+      "secondaryColor": "#0f2b48",
+      "targetAudience": "Araç, konut ve sağlık sigortası arayan aileler & KOBİ'ler",
+      "defaultHashtags": [
+        "#sigorta",
+        "#kasko",
+        "#trafiksigortasi",
+        "#dask",
+        "#tamamlayicisaglik"
+      ],
+      "clientPhone": "0535 403 13 63"
+    },
+    {
+      "id": "umutocguder",
+      "name": "Umut Öçgüder",
+      "handle": "@umutocguder",
+      "sector": "Yazılım Mühendisliği & Tech Girişimcilik",
+      "tone": "Vizyoner, teknik, eğitici, ilham verici ve net",
+      "title": "Senior Software Engineer & Tech Founder",
+      "company": "11hopem Software Ltd. Şti.",
+      "website": "https://umutocguder.vercel.app",
+      "primaryColor": "#0284c7",
+      "secondaryColor": "#0f172a",
+      "targetAudience": "Yazılımcılar, teknoloji liderleri, startup kurucuları ve mühendisler",
+      "socialAccounts": {
+        "instagram": "@umutocguder",
+        "tiktok": "@umutocguder",
+        "linkedin": "in/umutocguder",
+        "x": "@umutocguder",
+        "github": "umutocguder",
+        "web": "https://umutocguder.vercel.app"
+      },
+      "defaultHashtags": [
+        "#yazilim",
+        "#softwareengineering",
+        "#iosdev",
+        "#techfounder",
+        "#coding",
+        "#yapayzeka",
+        "#buildinpublic"
+      ],
+      "clientPhone": "0535 403 13 63"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-1",
+      "brandId": "nolte-mimarlik",
+      "title": "Villa Loft Mutfak Tasarımında 3 Gizli Lüks Detayı",
+      "format": "reels",
+      "pillar": "authority",
+      "status": "approved",
+      "scheduledDate": "2026-10-02",
+      "scheduledTime": "19:00",
+      "coverText": "Lüks mutfaklarda göze çarpmayan ama kaliteyi belirleyen 3 unsur",
+      "caption": "Mutfak adasında kullanılan gizli prizler, mat lake yüzeyler ve ray sistemleri... Tasarım detaylarda gizlidir. #noltemimarlik #icmimarlik"
+    },
+    {
+      "id": "post-2",
+      "brandId": "umut-ocguder",
+      "title": "iOS 18 SwiftData vs CoreData Performans Karşılaştırması",
+      "format": "carousel",
+      "pillar": "value",
+      "status": "scheduled",
+      "scheduledDate": "2026-10-02",
+      "scheduledTime": "10:00",
+      "coverText": "SwiftData'ya geçmeli misiniz? İşte gerçek benchmark sonuçları",
+      "caption": "Büyük veri setlerinde bellek tüketimi ve migration süreleri. SwiftData gelecektir. #swift #iosdev"
+    }
+  ]
+}

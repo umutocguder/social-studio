@@ -1,5 +1,32 @@
 # Social Studio Worklog & AI Context Handoff
 
+### [2026-10-03 00:32] Zorunlu Otonom Backend ve Veri Yedekleme Standardı Uygulaması
+- **Görev ve Amaç**:
+  - Global kural standardı (Madde 17) uyarınca sosyal medya marka profilleri, içerik planları ve simülasyon verilerinin otonom yedekleme altyapısının kurulması.
+  - Sistemin kullanıcı müdahalesi olmadan test öncesi (`pretest`), derleme öncesi ve betik tetikleyicisiyle otomatik snapshot oluşturması.
+- **Teknik Kararlar ve Mimari Değişiklikler**:
+  1. **Yedekleme Servisi (`src/backupService.js`)**:
+     - `createSocialStudioBackup()`, `verifySocialStudioBackupIntegrity()`, `restoreSocialStudioFromBackup()` fonksiyonları eklendi.
+     - SHA-256 bütünlük kontrolü ve `social_studio_checksums.json` denetim kaydı oluşturuldu (maks. 30 kayıt döngüsü).
+     - Zaman damgalı anlık görüntüler (`social_studio_backup_*.json`) ve `social_studio_latest_backup.json` üretimi sağlandı.
+  2. **Otomasyon Betiği ve Kanca (`scripts/backupWorkspace.js`)**:
+     - `npm run backup` ve `pretest` hook'ları ile otomatik veri yedekleme sağlandı.
+  3. **Git ve Dizin Hijyeni (`.gitignore`)**:
+     - Zaman damgalı yedekler `.gitignore`'a eklendi; en güncel yedek ve denetim logu repoda güvenceye alındı.
+  4. **Otomatik Testler (`tests/backup.test.js`)**:
+     - Snapshot üretimi, SHA-256 doğrulama, bütünlük kontrolü ve yedekten geri yükleme testleri yazıldı.
+- **Etkilenen Dosyalar**:
+  - [src/backupService.js](file:///Users/umut/mycodespaces/social-studio/src/backupService.js)
+  - [scripts/backupWorkspace.js](file:///Users/umut/mycodespaces/social-studio/scripts/backupWorkspace.js)
+  - [tests/backup.test.js](file:///Users/umut/mycodespaces/social-studio/tests/backup.test.js)
+  - [package.json](file:///Users/umut/mycodespaces/social-studio/package.json)
+  - [.gitignore](file:///Users/umut/mycodespaces/social-studio/.gitignore)
+- **Mevcut Durum ve Doğrulama**:
+  - `npm test`: 58/58 birim testi %100 BAŞARILI.
+  - Yedekleme bütünlüğü ve SHA-256 hash doğrulaması teyit edildi.
+
+---
+
 ### [2026-09-09 11:14] Proje Başlatıldı ve Mimari Temel Kuruldu
 - **Görev ve Amaç**: Kullanıcının sosyal medya yönetimine başlaması doğrultusunda işini kolaylaştıracak, birden fazla müşteriyi yönetebileceği, viral kanca ve senaryo üreten, 9-Grid ızgara simülatörlü ve tek tıkla WhatsApp müşteri onay akışlı **Social Studio** platformunun kurulması.
 - **Teknik Kararlar ve Mimarî**:

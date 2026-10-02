@@ -7,3 +7,6 @@ dist/
 coverage/
 .vercel
 .vercel/
+
+# Backups
+data/backups/*_backup_*.json
