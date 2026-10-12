@@ -1,7 +1,7 @@
 /**
- * Created by 11hopem (11 Hopem Software Ltd. Şti.)
+ * Created by 11Hopem
  * Copyright (c) 2026 11hopem. All rights reserved.
- * Licensed under 11 Hopem Software Proprietary License.
+ * Licensed under 11Hopem Proprietary License.
  */
 
 export const TRANSLATIONS = {
@@ -16,7 +16,7 @@ export const TRANSLATIONS = {
       footerKvkk: "KVKK Aydınlatma",
       footerPrivacy: "Gizlilik Politikası",
       footerTerms: "Kullanım Koşulları",
-      footerCreatedBy: "Created by 11hopem (11 Hopem Software Ltd. Şti.)"
+      footerCreatedBy: "Created by 11Hopem"
     },
     tabs: {
       studio: "✨ Viral Kanca & Senaryo Stüdyosu",
@@ -160,7 +160,7 @@ export const TRANSLATIONS = {
       footerKvkk: "Data Protection & GDPR",
       footerPrivacy: "Privacy Policy",
       footerTerms: "Terms of Service",
-      footerCreatedBy: "Created by 11hopem (11 Hopem Software Ltd. Şti.)"
+      footerCreatedBy: "Created by 11Hopem"
     },
     tabs: {
       studio: "✨ Viral Hook & Script Studio",

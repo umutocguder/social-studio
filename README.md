@@ -1,4 +1,4 @@
-<!-- Created by 11hopem (11 Hopem Software Ltd. Şti.) -->
+<!-- Created by 11Hopem -->
 # Social Studio — Çoklu Marka Sosyal Medya & İçerik Yönetim Platformu
 
 Social Studio, sosyal medya yöneticilerinin ve dijital içerik üreticilerinin işini 10 kat hızlandıran hepsi bir arada operasyon platformudur.
@@ -23,4 +23,4 @@ npm start
 ## 🌐 Canlı Bağlantılar
 - **Canlı Web:** [https://social-studio-app.vercel.app](https://social-studio-app.vercel.app)
 - **GitHub:** [https://github.com/umutocguder/social-studio](https://github.com/umutocguder/social-studio) (Private)
-- **Geliştirici:** 11hopem (11 Hopem Software Ltd. Şti.)
+- **Geliştirici:** 11Hopem

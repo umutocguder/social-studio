@@ -1,7 +1,7 @@
 /**
- * Created by 11hopem (11 Hopem Software Ltd. Şti.)
+ * Created by 11Hopem
  * Copyright (c) 2026 11hopem. All rights reserved.
- * Licensed under 11 Hopem Software Proprietary License.
+ * Licensed under 11Hopem Proprietary License.
  */
 
 /**
@@ -99,7 +99,7 @@ export const DEFAULT_BRANDS = [
     sector: "Yazılım Mühendisliği & Tech Girişimcilik",
     tone: "Vizyoner, teknik, eğitici, ilham verici ve net",
     title: "Senior Software Engineer & Tech Founder",
-    company: "11hopem Software Ltd. Şti.",
+    company: "11Hopem",
     website: "https://umutocguder.vercel.app",
     primaryColor: "#0284c7",
     secondaryColor: "#0f172a",

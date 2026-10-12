@@ -1,4 +1,4 @@
-<!-- Created by 11hopem (11 Hopem Software Ltd. Şti.) -->
+<!-- Created by 11Hopem -->
 # Social Studio — Proje Mimarisi, Standartları ve Kuralları
 
 Bu doküman **Social Studio** (Çoklu Marka Sosyal Medya Yönetim, İçerik Üretim, 9-Grid Izgara Önizleme ve Müşteri Onay Platformu) projesine ait teknik mimariyi, geliştirme standartlarını ve bağlayıcı kuralları belirler.
@@ -26,7 +26,7 @@ Bu doküman **Social Studio** (Çoklu Marka Sosyal Medya Yönetim, İçerik Üre
 
 ## 3. Kodlama ve Kalite Standartları
 1. **Kaynak Kod Dili (%100 İngilizce):** Değişkenler, fonksiyonlar, sınıflar, modüller, testler ve commit mesajları istisnasız İngilizce yazılır. Kullanıcı arayüzü yüksek standartta Türkçe'dir.
-2. **11hopem İmzası:** Bütün kaynak kod ve stil dosyalarının en başında `Created by 11hopem (11 Hopem Software Ltd. Şti.)` telif bloğu yer alır.
+2. **11hopem İmzası:** Bütün kaynak kod ve stil dosyalarının en başında `Created by 11Hopem` telif bloğu yer alır.
 3. **Zorunlu Otomatik Test:** Yazılan tüm iş mantığı modülleri (`src/`) için `tests/` altında kapsamlı birim testleri yer alır. Testler geçmeden hiçbir kod pushlanamaz.
 4. **Güvenlik ve Hukuki Uyum:** XSS sanitizasyonu, veri doğrulama, KVKK Aydınlatma Metni, Gizlilik Politikası ve Kullanım Koşulları eksiksiz sunulur.
 5. **Kesin Şirket İzolasyonu:** Şirket projelerine (`/Users/umut/intetra/`) kesinlikle dokunulmaz.

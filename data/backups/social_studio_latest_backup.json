@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "exportedAt": "2026-10-02T21:31:42.412Z",
+  "exportedAt": "2026-10-12T10:35:04.334Z",
   "creator": "Social Studio by 11hopem",
   "brands": [
     {
@@ -92,7 +92,7 @@
       "sector": "Yazılım Mühendisliği & Tech Girişimcilik",
       "tone": "Vizyoner, teknik, eğitici, ilham verici ve net",
       "title": "Senior Software Engineer & Tech Founder",
-      "company": "11hopem Software Ltd. Şti.",
+      "company": "11Hopem",
       "website": "https://umutocguder.vercel.app",
       "primaryColor": "#0284c7",
       "secondaryColor": "#0f172a",
@@ -125,7 +125,7 @@
       "format": "reels",
       "pillar": "authority",
       "status": "approved",
-      "scheduledDate": "2026-10-02",
+      "scheduledDate": "2026-10-12",
       "scheduledTime": "19:00",
       "coverText": "Lüks mutfaklarda göze çarpmayan ama kaliteyi belirleyen 3 unsur",
       "caption": "Mutfak adasında kullanılan gizli prizler, mat lake yüzeyler ve ray sistemleri... Tasarım detaylarda gizlidir. #noltemimarlik #icmimarlik"
@@ -137,7 +137,7 @@
       "format": "carousel",
       "pillar": "value",
       "status": "scheduled",
-      "scheduledDate": "2026-10-02",
+      "scheduledDate": "2026-10-12",
       "scheduledTime": "10:00",
       "coverText": "SwiftData'ya geçmeli misiniz? İşte gerçek benchmark sonuçları",
       "caption": "Büyük veri setlerinde bellek tüketimi ve migration süreleri. SwiftData gelecektir. #swift #iosdev"
