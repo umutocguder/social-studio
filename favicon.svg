@@ -1,16 +1,15 @@
 <!-- Created by 11Hopem -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#090d16"/>
-  <rect x="14" y="14" width="36" height="36" rx="10" stroke="url(#paint0_linear)" stroke-width="4"/>
-  <circle cx="32" cy="32" r="8" fill="url(#paint1_linear)"/>
-  <circle cx="42" cy="22" r="3" fill="#06b6d4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" fill="none">
+  <rect x="2" y="6" width="52" height="52" rx="14" fill="#090d16" stroke="url(#logo_grad)" stroke-width="2"/>
+  <rect x="14" y="18" width="28" height="28" rx="8" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="28" cy="32" r="6" fill="url(#logo_grad)"/>
+  <circle cx="36" cy="24" r="2.5" fill="#06b6d4"/>
+  <text x="68" y="33" fill="#ffffff" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="800" font-size="20" letter-spacing="1.5">SOCIAL<tspan fill="#6366f1">STUDIO</tspan></text>
+  <text x="68" y="48" fill="#94a3b8" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-weight="600" font-size="10" letter-spacing="3">OMNI-CHANNEL CONTENT SUITE</text>
   <defs>
-    <linearGradient id="paint0_linear" x1="14" y1="14" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logo_grad" x1="2" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#ec4899"/>
-    </linearGradient>
-    <linearGradient id="paint1_linear" x1="24" y1="24" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ec4899"/>
+      <stop offset="0.5" stop-color="#ec4899"/>
       <stop offset="1" stop-color="#f59e0b"/>
     </linearGradient>
   </defs>

@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-10-12T13:45:16.135Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "c36b68a8597b600934c20c096a1ddad7c453e3b52c2871ff4f909a27b63d9f49",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-12T13-45-16-135Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-12T13:45:15.950Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "b760fab66a60cdc3a65882058dc175ad56fba3510f3249f03b2a505635a37fca",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-12T13-45-15-950Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
     "timestamp": "2026-10-12T10:35:04.334Z",
     "brandsCount": 5,
     "postsCount": 2,
