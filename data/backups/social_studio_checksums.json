@@ -1,5 +1,32 @@
 [
   {
+    "timestamp": "2026-10-14T07:18:02.350Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "85ed0904b14a025ed092028357272b12a31d115a066f6ac1903cd76edbb9bcdd",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-14T07-18-02-349Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-14T07:18:02.114Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "f58facf3064d220a6bcadda3a5cf6d885000578d889bf7223cf2132649a84406",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-14T07-18-02-113Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-14T07:13:30.225Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "3c4e84adb152426d50490ea87b77f1feee214faf4952f2f426df7ed6858607a0",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-14T07-13-30-224Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
     "timestamp": "2026-10-12T13:45:16.135Z",
     "brandsCount": 5,
     "postsCount": 2,
