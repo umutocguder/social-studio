@@ -1,6 +1,6 @@
 {
   "name": "social-studio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Social Studio - Çoklu Marka Sosyal Medya Yönetim, İçerik Üretim ve Müşteri Onay Platformu",
   "main": "src/brandManager.js",
   "type": "module",
