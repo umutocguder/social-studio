@@ -149,7 +149,7 @@ export class AnalyticsEngine {
       `• Bir sonraki ay: Yakapark Konutları ve Garden Villaları teslimat röportajlarına ağırlık verilecek.`,
       ``,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `Hazırlayan: 11hopem Software (Social Studio Platform)`
+      `Hazırlayan: 11Hopem (Social Studio Platform)`
     ];
 
     return lines.join('\n');

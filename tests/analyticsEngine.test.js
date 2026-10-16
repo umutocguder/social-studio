@@ -62,5 +62,5 @@ test('generateExecutiveReport creates detailed executive briefing for Nolte', ()
   assert.ok(report.includes('Eylül 2026'));
   assert.ok(report.includes('Konya Meram Showroom'));
   assert.ok(report.includes('TEMEL PERFORMANS GÖSTERGELERİ'));
-  assert.ok(report.includes('11hopem Software'));
+  assert.ok(report.includes('11Hopem'));
 });

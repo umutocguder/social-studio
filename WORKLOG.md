@@ -96,10 +96,10 @@
      - `formatContentForChannel`: Tek bir konudan X için 280 karakter limitli thread (1/3, 2/3, 3/3), LinkedIn için profesyonel makale, TikTok için 9:16 dikey video senaryosu ve Instagram için Reels/Carousel metni üreten akıllı editoryal formatlayıcı.
      - `publishToChannels`: Seçilen kanallara tek tıkla eşzamanlı dağıtım yapan (cross-posting) motor.
   2. **Umut Öçgüder Marka Profili (`src/brandManager.js`)**:
-     - `@umutocguder` markası (Senior Software Engineer & Tech Founder, 11hopem Software) ve tüm sosyal ağ hesapları (`instagram`, `tiktok`, `linkedin`, `x`, `github`, `web`) sisteme kaydedildi.
+     - `@umutocguder` markası (Senior Software Engineer & Tech Founder, 11Hopem) ve tüm sosyal ağ hesapları (`instagram`, `tiktok`, `linkedin`, `x`, `github`, `web`) sisteme kaydedildi.
   3. **Yazılım & Tech Girişimcilik Kancaları & Hazır Projeler (`src/contentStudio.js`)**:
      - `tech_developer` kanca kategorisi (Clean Architecture, AI-native mimari, SaaS sistem tasarımı).
-     - `UMUT_TECH_PRESETS`: 11hopem Software SaaS mimarisi, SwiftUI Zero-Crash iOS standartları, Antigravity Agentic AI ile 5x verimlilik, Sistem tasarımı ve iş analizi şablonları.
+     - `UMUT_TECH_PRESETS`: 11Hopem SaaS mimarisi, SwiftUI Zero-Crash iOS standartları, Antigravity Agentic AI ile 5x verimlilik, Sistem tasarımı ve iş analizi şablonları.
   4. **Arayüz ve Çoklu Kanal Paneli (`index.html`, `assets/style.css`, `assets/app.js`)**:
      - Banner'da TikTok, Instagram, LinkedIn, X etiketleri ve linkleri.
      - Stüdyo çıktısında tek tıkla anlık kanal önizleme çipleri (Varsayılan / X Thread / LinkedIn / TikTok / Instagram).

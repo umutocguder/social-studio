@@ -43,7 +43,7 @@ const INITIAL_DEMO_POSTS = [
   {
     id: "post-umut-1",
     brandId: "umutocguder",
-    title: "11hopem Software: Sıfırdan SaaS Mimarisi (Build-in-Public)",
+    title: "11Hopem: Sıfırdan SaaS Mimarisi (Build-in-Public)",
     format: "carousel",
     pillar: "behind_scenes",
     status: "published",
@@ -51,7 +51,7 @@ const INITIAL_DEMO_POSTS = [
     scheduledTime: "19:30",
     coverBgColor: "#0284c7",
     coverText: "Sıfırdan SaaS Şirketi Kurma Günlüğü 🚀",
-    caption: "11hopem Software çatısı altında geliştirdiğimiz multi-tenant SaaS mimarisinde Next.js 15, Turbopack ve Supabase stack'ini tercih ettik."
+    caption: "11Hopem çatısı altında geliştirdiğimiz multi-tenant SaaS mimarisinde Next.js 15, Turbopack ve Supabase stack'ini tercih ettik."
   },
   {
     id: "post-umut-2",

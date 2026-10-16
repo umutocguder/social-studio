@@ -63,7 +63,7 @@ export function formatContentForChannel({ topic = '', baseText = '', channel = '
     case 'x': {
       // Formats as a 3-part Thread
       const tweet1 = `1/3 🧵 ${cleanTopic}\n\nÇoğu geliştiricinin atladığı kritik nokta: Kod yazmak işin sadece %20'si. Asıl farkı yaratan şey sistem tasarımı ve ölçeklenebilirlik.\n\nDetaylar aşağıda 👇`;
-      const tweet2 = `2/3 ⚙️ Nasıl uyguluyoruz?\n• Mimariyi baştan modüler kurgulayın\n• Test coverage ve CI/CD'den ödün vermeyin\n• Premature optimization yerine net iş gereksinimlerine odaklanın.\n\n11hopem Software standartlarımızda sıfır hata toleransı ile ilerliyoruz.`;
+      const tweet2 = `2/3 ⚙️ Nasıl uyguluyoruz?\n• Mimariyi baştan modüler kurgulayın\n• Test coverage ve CI/CD'den ödün vermeyin\n• Premature optimization yerine net iş gereksinimlerine odaklanın.\n\n11Hopem standartlarımızda sıfır hata toleransı ile ilerliyoruz.`;
       const tweet3 = `3/3 📌 Özetle;\nTeknoloji hızla değişiyor ama sağlam mühendislik prensipleri kalıcıdır.\n\nSiz projenizde bu yapıyı nasıl yönetiyorsunuz? Yanıtlayın, tartışalım 💬\n\n${hashtags.split(' ').slice(0, 3).join(' ')}`;
       return {
         channel: 'x',
@@ -79,7 +79,7 @@ export function formatContentForChannel({ topic = '', baseText = '', channel = '
         `🚀 ${cleanTopic} | Mühendislik ve Girişimcilik Perspektifi`,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
         ``,
-        `Yazılım geliştirme süreçlerinde ve 11hopem Software bünyesinde hayata geçirdiğimiz projelerde edindiğimiz temel bir tecrübe var:`,
+        `Yazılım geliştirme süreçlerinde ve 11Hopem bünyesinde hayata geçirdiğimiz projelerde edindiğimiz temel bir tecrübe var:`,
         ``,
         `Kaliteli bir yazılım ürünü, yalnızca çalışan koddan ibaret değildir. Kodun sürdürülebilirliği, zero-crash garantisi ve gerçek bir iş problemine çözüm üretmesi esastır.`,
         ``,

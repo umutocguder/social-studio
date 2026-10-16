@@ -116,11 +116,11 @@ export const VIRAL_HOOKS = [
 
 export const UMUT_TECH_PRESETS = [
   {
-    title: "11hopem Software: Sıfırdan SaaS Mimarisi Kurmak (Build-in-Public)",
+    title: "11Hopem: Sıfırdan SaaS Mimarisi Kurmak (Build-in-Public)",
     format: "carousel",
     pillar: "behind_scenes",
     coverText: "Sıfırdan SaaS Şirketi Kurma Günlüğü 🚀",
-    caption: "11hopem Software çatısı altında geliştirdiğimiz multi-tenant SaaS mimarisinde Next.js 15, Turbopack ve Supabase stack'ini tercih ettik. Sıfırdan mimari kararlar ve dersler kaydırmalı postta!"
+    caption: "11Hopem çatısı altında geliştirdiğimiz multi-tenant SaaS mimarisinde Next.js 15, Turbopack ve Supabase stack'ini tercih ettik. Sıfırdan mimari kararlar ve dersler kaydırmalı postta!"
   },
   {
     title: "SwiftUI & Clean Architecture ile Zero-Crash iOS Standartları",

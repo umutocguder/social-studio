@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-10-16T07:10:08.464Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "879b2666a40d0fc9853abe091a7ecb072a3b2c3dc12b02ccde254bcea5da13e6",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-16T07-10-08-464Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-16T07:10:08.251Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "3ed3b143a1880fa59ff4e434ad530d5ec975db033cbda86d354a0e953ce63c3e",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-16T07-10-08-250Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
     "timestamp": "2026-10-14T07:18:02.350Z",
     "brandsCount": 5,
     "postsCount": 2,

@@ -45,7 +45,7 @@ test('formatContentForChannel formats LinkedIn professional article', () => {
 
   assert.equal(res.channel, 'linkedin');
   assert.equal(res.format, 'professional_post');
-  assert.ok(res.text.includes('11hopem Software'));
+  assert.ok(res.text.includes('11Hopem'));
   assert.ok(res.text.includes('#yazilim'));
 });
 
@@ -65,7 +65,7 @@ test('formatContentForChannel formats TikTok vertical video script', () => {
 test('publishToChannels cross-posts across all 4 channels in sandbox mode', async () => {
   const post = {
     title: 'Sıfırdan SaaS Mimarisi',
-    caption: '11hopem Software altyapısı.'
+    caption: '11Hopem altyapısı.'
   };
   const brand = {
     name: 'Umut Öçgüder',
