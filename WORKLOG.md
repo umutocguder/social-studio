@@ -1,6 +1,41 @@
 # Social Studio Worklog & AI Context Handoff
 
-### [2026-10-03 00:32] Zorunlu Otonom Backend ve Veri Yedekleme Standardı Uygulaması
+### [2026-10-18 23:15] Social Studio v1.1.0 — Ticari Büyütme, Abonelik Motoru, Müşteri Onay Portalı & AI Viral Skorlama
+- **Görev ve Amaç**:
+  - Kullanıcının "projemizi büyüt" ve para kazanma hedefi doğrultusunda Social Studio'yu ticari bir SaaS ürününe dönüştürme.
+  - Abonelik katmanları (Free Starter, Pro SMM $29/mo, Agency $59/mo), limit denetimi ve interaktif fiyatlandırma modalı entegrasyonu.
+  - Müşteri onay/revizyon karar motoru ve denetim kayıtları (audit trail) altyapısının kurulması.
+  - 5 stratejik iletişim tonu, 0-100 viral tutundurma skoru ve niş akıllı etiket üretim motorunun eklenmesi.
+- **Teknik Kararlar ve Mimarî**:
+  1. **Abonelik Motoru (`src/subscriptionEngine.js`)**:
+     - `SUBSCRIPTION_PLANS` ile Free, Pro, Agency katman limitleri tanımlandı.
+     - `canAddBrand()`, `canGenerateAiScript()`, `canUseFeature()`, `recordAiGeneration()`, `upgradePlan()` metotları ile tam kota ve özellik kontrolü sağlandı.
+     - Aylık / yıllık (%20 indirimli) faturalandırma seçeneği eklendi.
+  2. **Müşteri Onay Portalı Motoru (`src/clientPortalEngine.js`)**:
+     - `generateClientReviewPayload()`, `formatWhatsAppReviewMessage()`, `processClientDecision()`, `getReviewLogsByPost()` metotları oluşturuldu.
+     - Beyaz etiketli (white-label) ajans imza desteği ve her gönderi için denetim geçmişi (audit trail) sağlandı.
+  3. **Yapay Zeka & Viral Skorlama Motoru (`src/aiEngine.js`)**:
+     - `calculateViralScore()`: Kanca, tutundurma, değer ve CTA ağırlıklarıyla 0-100 skorlama, seviye tespiti (Viral Masterpiece vb.) ve algoritmik öneriler.
+     - `adaptTone()`: 5 stratejik ton (Lüks Mimari, Tech Girişimci, Samimi, Otoriter Uzman, Doğrudan Satış) TR/EN uyarlaması.
+     - `generateSmartHashtags()`: Niş bazlı akıllı hashtag türetme.
+  4. **Kullanıcı Arayüzü & Modal Entegrasyonu**:
+     - Header'da dinamik plan rozeti (`#tierBadgeText`), fiyatlandırma modalı (`#pricingModal`) ve aylık/yıllık geçişi.
+     - İçerik Stüdyosu'nda AI ton seçici (`#toneSelect`), viral skor kartı (`#viralScoreWidget`).
+     - Gönderi detay modalında interaktif müşteri onayı (`#modalApproveBtn`), revizyon isteği (`#modalRevisionBtn`) ve denetim kayıtları (`#modalPortalAuditTrail`).
+  5. **Birim Testleri & Sıfır Kırılma Garantisi**:
+     - `tests/subscriptionEngine.test.js` (5 test)
+     - `tests/clientPortalEngine.test.js` (4 test)
+     - `tests/aiEngine.test.js` (4 test)
+     - Toplam 71/71 test %100 BAŞARILI.
+- **Etkilenen Dosyalar**:
+  - `src/subscriptionEngine.js`, `src/clientPortalEngine.js`, `src/aiEngine.js`
+  - `tests/subscriptionEngine.test.js`, `tests/clientPortalEngine.test.js`, `tests/aiEngine.test.js`
+  - `src/i18n.js`, `index.html`, `assets/style.css`, `assets/app.js`, `package.json`
+- **Mevcut Durum ve Doğrulama**:
+  - `npm test`: 71/71 test %100 başarılı.
+  - Sürüm `1.1.0` olarak etiketlendi ve production dağıtımına hazırlandı.
+
+---
 - **Görev ve Amaç**:
   - Global kural standardı (Madde 17) uyarınca sosyal medya marka profilleri, içerik planları ve simülasyon verilerinin otonom yedekleme altyapısının kurulması.
   - Sistemin kullanıcı müdahalesi olmadan test öncesi (`pretest`), derleme öncesi ve betik tetikleyicisiyle otomatik snapshot oluşturması.

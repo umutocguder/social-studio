@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "exportedAt": "2026-10-16T07:10:08.463Z",
+  "exportedAt": "2026-10-18T20:11:05.103Z",
   "creator": "Social Studio by 11hopem",
   "brands": [
     {
@@ -125,7 +125,7 @@
       "format": "reels",
       "pillar": "authority",
       "status": "approved",
-      "scheduledDate": "2026-10-16",
+      "scheduledDate": "2026-10-18",
       "scheduledTime": "19:00",
       "coverText": "Lüks mutfaklarda göze çarpmayan ama kaliteyi belirleyen 3 unsur",
       "caption": "Mutfak adasında kullanılan gizli prizler, mat lake yüzeyler ve ray sistemleri... Tasarım detaylarda gizlidir. #noltemimarlik #icmimarlik"
@@ -137,7 +137,7 @@
       "format": "carousel",
       "pillar": "value",
       "status": "scheduled",
-      "scheduledDate": "2026-10-16",
+      "scheduledDate": "2026-10-18",
       "scheduledTime": "10:00",
       "coverText": "SwiftData'ya geçmeli misiniz? İşte gerçek benchmark sonuçları",
       "caption": "Büyük veri setlerinde bellek tüketimi ve migration süreleri. SwiftData gelecektir. #swift #iosdev"

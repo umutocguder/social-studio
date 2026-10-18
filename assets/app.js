@@ -36,6 +36,14 @@ import {
 } from '../src/channelConnectors.js';
 import { I18nEngine } from '../src/i18n.js';
 import { logger } from '../src/telemetry/logger.js';
+import { SubscriptionEngine, SUBSCRIPTION_PLANS } from '../src/subscriptionEngine.js';
+import { ClientPortalEngine } from '../src/clientPortalEngine.js';
+import {
+  calculateViralScore,
+  adaptTone,
+  generateSmartHashtags,
+  AI_TONES
+} from '../src/aiEngine.js';
 
 // Seed demo posts for rich initial experience (Nolte & Umut Öçgüder)
 const INITIAL_DEMO_POSTS = [
@@ -194,6 +202,9 @@ let schedulerEngine;
 let analyticsEngine;
 let metaGraphApiClient;
 let i18nEngine;
+let subscriptionEngine;
+let clientPortalEngine;
+let currentBillingCycle = 'monthly';
 
 let currentBrandId = 'umutocguder'; // Default to Umut Öçgüder as requested
 let selectedHookPattern = VIRAL_HOOKS[0].pattern;
@@ -203,6 +214,8 @@ let lastGeneratedRawOutput = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   i18nEngine = new I18nEngine();
+  subscriptionEngine = new SubscriptionEngine();
+  clientPortalEngine = new ClientPortalEngine();
   loadStateFromLocal();
   calendarEngine = new CalendarEngine(2026, 9);
   schedulerEngine = new SchedulerEngine('luxury_architecture');
@@ -219,6 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMetaApi();
   initBrandManagerView();
   initImportExport();
+  initPricingModal();
+  initClientApproval();
 
   applyTranslations();
   updateUI();
@@ -424,6 +439,14 @@ function updateUI() {
   renderAnalytics();
   renderOptimalSlots();
   renderBrandList();
+  updateSubscriptionBadge();
+}
+
+function updateSubscriptionBadge() {
+  const badgeText = document.getElementById('tierBadgeText');
+  if (!badgeText || !subscriptionEngine) return;
+  const plan = subscriptionEngine.getActivePlan();
+  badgeText.textContent = plan.badge;
 }
 
 function updateChannelCards() {
@@ -604,10 +627,20 @@ function renderHooks(category = 'all') {
 }
 
 function handleContentGeneration() {
+  const currentMonthlyUsage = subscriptionEngine ? subscriptionEngine.getSubscription().monthlyAiCount || 0 : 0;
+  if (subscriptionEngine && !subscriptionEngine.canGenerateAiScript(currentMonthlyUsage)) {
+    const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+    alert(i18nEngine ? i18nEngine.t('subscription.aiLimitReached') : 'Aylık AI senaryo limitinize ulaştınız. Sınırsız üretim için Pro plana geçin.');
+    document.getElementById('pricingModalBtn')?.click();
+    return;
+  }
+
   const brand = brandManager.getBrandById(currentBrandId);
   const topic = document.getElementById('topicInput').value.trim() || 'Önemli Bir Konu';
   const format = document.getElementById('formatSelect').value;
   const ctaType = document.getElementById('ctaSelect').value;
+  const toneKey = document.getElementById('toneSelect')?.value || 'luxury_architecture';
+  const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
 
   let outputText = '';
 
@@ -661,6 +694,43 @@ function handleContentGeneration() {
       hook: selectedHookPattern.replace('{TOPIC}', topic),
       ctaType
     });
+  }
+
+  // Strategic Tone Adaptation & Smart Hashtags
+  const niche = brand?.id === 'umutocguder' ? 'tech' : (brand?.id === 'nolte-mimarlik' ? 'architecture' : 'general_business');
+  const smartTags = generateSmartHashtags(niche, topic);
+  outputText = adaptTone(outputText, toneKey, lang);
+  outputText += `\n\n📌 ${i18nEngine ? i18nEngine.t('aiStudio.smartHashtagsLabel') : 'Akıllı Önerilen Etiketler'}:\n${smartTags.join(' ')}`;
+
+  // Viral Score Calculation & UI Widget Render
+  const viralResult = calculateViralScore({ hook: selectedHookPattern, body: outputText, cta: ctaType, format });
+  const scoreWidget = document.getElementById('viralScoreWidget');
+  if (scoreWidget) {
+    scoreWidget.style.display = 'block';
+    const badge = document.getElementById('viralScoreRatingBadge');
+    const num = document.getElementById('viralScoreNumber');
+    const fill = document.getElementById('viralScoreFill');
+    const suggestions = document.getElementById('viralScoreSuggestions');
+
+    if (badge) {
+      badge.textContent = lang === 'en' ? viralResult.ratingLabelEn : viralResult.ratingLabelTr;
+      badge.className = `api-badge ${viralResult.score >= 70 ? 'connected' : (viralResult.score >= 50 ? 'sandbox' : '')}`;
+    }
+    if (num) num.textContent = `${viralResult.score}/100`;
+    if (fill) fill.style.width = `${viralResult.score}%`;
+    if (suggestions) {
+      if (viralResult.suggestions.length > 0) {
+        suggestions.textContent = `💡 ${viralResult.suggestions.join(' ')}`;
+      } else {
+        suggestions.textContent = lang === 'en' 
+          ? '✨ High-retention algorithmic drivers detected.' 
+          : '✨ Yüksek tutundurma ve viral algoritmik tetikleyiciler devrede.';
+      }
+    }
+  }
+
+  if (subscriptionEngine) {
+    subscriptionEngine.recordAiGeneration();
   }
 
   lastGeneratedRawOutput = outputText;
@@ -1199,6 +1269,7 @@ function openPostModal(post) {
   document.getElementById('modalStatusSelect').value = post.status;
   document.getElementById('modalPostCaption').textContent = post.caption || '(Açıklama metni henüz eklenmemiş)';
 
+  renderModalAuditTrail(post.id);
   modal.classList.add('open');
 }
 
@@ -1233,6 +1304,14 @@ function initBrandManagerView() {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       try {
+        const currentBrandCount = brandManager.getAllBrands().length;
+        if (subscriptionEngine && !subscriptionEngine.canAddBrand(currentBrandCount)) {
+          const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+          alert(i18nEngine ? i18nEngine.t('subscription.brandLimitReached') : 'Marka limitinize ulaştınız. Yeni marka eklemek için Pro veya Agency planına geçin.');
+          document.getElementById('pricingModalBtn')?.click();
+          return;
+        }
+
         const name = document.getElementById('newBrandName').value;
         const handle = document.getElementById('newBrandHandle').value;
         const sector = document.getElementById('newBrandSector').value;
@@ -1323,3 +1402,213 @@ function initImportExport() {
     });
   }
 }
+
+/* ==========================================================
+   SUBSCRIPTION, PRICING & CLIENT REVIEW PORTAL
+   ========================================================== */
+
+function initPricingModal() {
+  const modal = document.getElementById('pricingModal');
+  const openBtn = document.getElementById('pricingModalBtn');
+  const closeBtn = document.getElementById('closePricingModalBtn');
+  const monthlyBtn = document.getElementById('billingMonthlyBtn');
+  const annualBtn = document.getElementById('billingAnnualBtn');
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      renderPricingCards();
+      modal.classList.add('open');
+    });
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+  }
+
+  if (monthlyBtn && annualBtn) {
+    monthlyBtn.addEventListener('click', () => {
+      currentBillingCycle = 'monthly';
+      monthlyBtn.classList.add('active');
+      annualBtn.classList.remove('active');
+      renderPricingCards();
+    });
+
+    annualBtn.addEventListener('click', () => {
+      currentBillingCycle = 'yearly';
+      annualBtn.classList.add('active');
+      monthlyBtn.classList.remove('active');
+      renderPricingCards();
+    });
+  }
+
+  renderPricingCards();
+}
+
+function renderPricingCards() {
+  const grid = document.getElementById('pricingCardsGrid');
+  if (!grid || !subscriptionEngine) return;
+
+  const currentPlan = subscriptionEngine.getActivePlan();
+  const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+  const plans = Object.values(SUBSCRIPTION_PLANS);
+
+  grid.innerHTML = plans.map(p => {
+    const isActive = p.id === currentPlan.id;
+    const isRecommended = Boolean(p.recommended);
+    const priceTRY = currentBillingCycle === 'yearly' ? Math.round(p.prices.TRY.yearly / 12) : p.prices.TRY.monthly;
+    const features = lang === 'en' ? p.featuresEn : p.featuresTr;
+    const planName = lang === 'en' ? p.name : p.nameTr;
+    const periodLabel = lang === 'en' ? '/ mo' : '/ ay';
+    const billedLabel = currentBillingCycle === 'yearly'
+      ? (lang === 'en' ? `Billed $${p.prices.USD.yearly} / yr` : `Yıllık ₺${p.prices.TRY.yearly} faturalanır`)
+      : '';
+
+    let actionBtnHtml = '';
+    if (isActive) {
+      actionBtnHtml = `<button class="btn btn-outline" style="width:100%; cursor:default; opacity:0.8;" disabled>
+        ${i18nEngine ? i18nEngine.t('subscription.activePlanBtn') : 'Aktif Plan'}
+      </button>`;
+    } else {
+      actionBtnHtml = `<button class="btn ${isRecommended ? 'btn-primary' : 'btn-outline'} js-upgrade-plan-btn" data-plan="${p.id}" style="width:100%;">
+        ${i18nEngine ? i18nEngine.t('subscription.upgradeBtn') : 'Bu Plana Geç'}
+      </button>`;
+    }
+
+    return `
+      <div class="pricing-card ${isRecommended ? 'recommended' : ''} ${isActive ? 'active' : ''}">
+        ${isRecommended ? `<div class="recommended-badge">${lang === 'en' ? '⭐ MOST POPULAR' : '⭐ EN POPÜLER'}</div>` : ''}
+        <h4 style="font-size:1.15rem; margin-top:8px;">${planName}</h4>
+        <div class="pricing-price">
+          ${priceTRY === 0 ? (lang === 'en' ? 'Free' : 'Ücretsiz') : `₺${priceTRY} <span style="font-size:0.85rem; font-weight:400; color:var(--text-muted);">${periodLabel}</span>`}
+        </div>
+        ${billedLabel ? `<div style="font-size:0.75rem; color:var(--accent-cyan); margin-bottom:12px;">${billedLabel}</div>` : '<div style="margin-bottom:12px;"></div>'}
+        <ul class="pricing-features">
+          ${features.map(f => `<li><span class="pricing-check">✓</span> ${f}</li>`).join('')}
+        </ul>
+        <div style="margin-top:auto;">
+          ${actionBtnHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.js-upgrade-plan-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetPlan = btn.dataset.plan;
+      try {
+        subscriptionEngine.upgradePlan(targetPlan, currentBillingCycle);
+        updateSubscriptionBadge();
+        renderPricingCards();
+        document.getElementById('pricingModal')?.classList.remove('open');
+        const plan = subscriptionEngine.getActivePlan();
+        alert(lang === 'en'
+          ? `🎉 Plan successfully upgraded to ${plan.name}!`
+          : `🎉 Tebrikler! Planınız başarıyla ${plan.nameTr} olarak güncellendi!`);
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+  });
+}
+
+function initClientApproval() {
+  const approveBtn = document.getElementById('modalApproveBtn');
+  const revisionBtn = document.getElementById('modalRevisionBtn');
+
+  if (approveBtn) {
+    approveBtn.addEventListener('click', () => {
+      if (!selectedPostForModal) return;
+      const brand = brandManager.getBrandById(currentBrandId);
+
+      clientPortalEngine.processClientDecision(
+        selectedPostForModal.id,
+        'approved',
+        'İçerik onaylandı, yayına hazır.',
+        brand?.name || 'Müşteri'
+      );
+
+      selectedPostForModal.status = 'approved';
+      gridSimulator.updatePostStatus(selectedPostForModal.id, 'approved');
+      const statusSelect = document.getElementById('modalStatusSelect');
+      if (statusSelect) statusSelect.value = 'approved';
+
+      persistState();
+      updateUI();
+      renderModalAuditTrail(selectedPostForModal.id);
+
+      const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+      alert(lang === 'en'
+        ? '✅ Post successfully approved by client!'
+        : '✅ Gönderi müşteri tarafından başarıyla onaylandı!');
+    });
+  }
+
+  if (revisionBtn) {
+    revisionBtn.addEventListener('click', () => {
+      if (!selectedPostForModal) return;
+      const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+      const promptMsg = lang === 'en'
+        ? 'Please specify your revision request / feedback:'
+        : 'Lütfen talep ettiğiniz revizyon veya değişiklik notlarını giriniz:';
+      const defaultNote = lang === 'en' ? 'Refine the hook for higher curiosity' : 'Kancayı daha dikkat çekici yapalım';
+      const userFeedback = prompt(promptMsg, defaultNote);
+
+      if (userFeedback === null) return;
+
+      const brand = brandManager.getBrandById(currentBrandId);
+      clientPortalEngine.processClientDecision(
+        selectedPostForModal.id,
+        'revision_requested',
+        userFeedback || defaultNote,
+        brand?.name || 'Müşteri'
+      );
+
+      selectedPostForModal.status = 'draft';
+      gridSimulator.updatePostStatus(selectedPostForModal.id, 'draft');
+      const statusSelect = document.getElementById('modalStatusSelect');
+      if (statusSelect) statusSelect.value = 'draft';
+
+      persistState();
+      updateUI();
+      renderModalAuditTrail(selectedPostForModal.id);
+
+      alert(lang === 'en'
+        ? '🔄 Revision request logged and post marked as draft.'
+        : '🔄 Revizyon talebi kaydedildi ve içerik taslak durumuna alındı.');
+    });
+  }
+}
+
+function renderModalAuditTrail(postId) {
+  const auditContainer = document.getElementById('modalPortalAuditTrail');
+  if (!auditContainer || !clientPortalEngine) return;
+
+  const logs = clientPortalEngine.getReviewLogsByPost(postId);
+  if (!logs || logs.length === 0) {
+    auditContainer.style.display = 'none';
+    auditContainer.innerHTML = '';
+    return;
+  }
+
+  const lang = i18nEngine ? i18nEngine.getLanguage() : 'tr';
+  const title = lang === 'en' ? '📜 Client Approval Audit Trail' : '📜 Müşteri Onay Denetim Kayıtları';
+
+  auditContainer.style.display = 'block';
+  auditContainer.innerHTML = `
+    <div style="font-weight:700; margin-bottom:6px; color:var(--text-light);">${title}:</div>
+    ${logs.map(log => `
+      <div style="margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid var(--border-subtle);">
+        <span>${log.decision === 'approved' ? '🟢 ONAYLANDI' : '🔄 REVİZYON İSTENDİ'}</span> • 
+        <span>${new Date(log.timestamp).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}</span> • 
+        <span style="color:var(--text-muted);">${log.notes || '-'}</span>
+      </div>
+    `).join('')}
+  `;
+}
+

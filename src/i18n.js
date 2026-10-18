@@ -147,6 +147,38 @@ export const TRANSLATIONS = {
       rule3Desc: "Müşteriye dağınık fotoğraflar atmayın. Social Studio üzerinden tek tıkla üretilen hazır WhatsApp Onay Kartı ile metin ve tasarımı resmi bir onaya bağlayın.",
       rule4Title: "4. 9-Grid Görsel Ritim",
       rule4Desc: "Profil ziyaretçilerinin takip et butonuna basmasını sağlayan şey profildeki düzen harmonisidir. Yan yana 3 reels kapağı yerine fotoğraf-alıntı-video dengesi kurun."
+    },
+    subscription: {
+      upgradeBadge: "⭐ PRO'YA GEÇ",
+      plansTitle: "Abonelik Planları & Ölçekleme",
+      upgradeModalTitle: "⭐ Social Studio Pro & Ajans Planına Geçin",
+      pricingModalTitle: "Social Studio Planları",
+      pricingModalSubtitle: "İşletmenizi veya ajansınızı profesyonel ölçeğe taşıyın.",
+      savePercent: "%20 Tasarruf",
+      monthly: "Aylık",
+      annual: "Yıllık",
+      currentPlan: "Mevcut Planınız:",
+      monthlyBilling: "Aylık",
+      yearlyBilling: "Yıllık (%20 İndirimli)",
+      upgradeBtn: "Bu Plana Geç",
+      activePlanBtn: "Aktif Plan",
+      brandLimitReached: "Marka limitinize ulaştınız. Yeni marka eklemek için Pro veya Agency planına geçin.",
+      aiLimitReached: "Aylık AI senaryo limitinize ulaştınız. Sınırsız üretim için Pro plana geçin."
+    },
+    aiStudio: {
+      toneLabel: "Yapay Zeka İletişim Tonu",
+      viralScoreTitle: "Viral Tutundurma Skoru",
+      viralScoreSubtitle: "Algoritmik ER & İzlenme Tahmini",
+      suggestionsTitle: "Geliştirme Tavsiyeleri",
+      smartHashtagsLabel: "Akıllı Önerilen Etiketler"
+    },
+    clientPortal: {
+      portalTitle: "Müşteri Onay Portalı",
+      approveBtn: "✅ Onayla",
+      revisionBtn: "✏️ Revize İste",
+      approvedSuccess: "Gönderi başarıyla onaylandı!",
+      revisionSuccess: "Revize talebi ve notlar başarıyla kaydedildi.",
+      historyTitle: "Onay & Revizyon Geçmişi"
     }
   },
   en: {
@@ -291,6 +323,38 @@ export const TRANSLATIONS = {
       rule3Desc: "Never send scattered photos to clients. Send one-click structured WhatsApp Approval Cards directly from Social Studio for formal sign-off.",
       rule4Title: "4. 9-Grid Visual Rhythm",
       rule4Desc: "A cohesive grid layout converts profile visitors to followers. Maintain visual rhythm between photos, quotes, and video covers instead of repetitive thumbnails."
+    },
+    subscription: {
+      upgradeBadge: "⭐ UPGRADE TO PRO",
+      plansTitle: "Subscription Plans & Scaling",
+      upgradeModalTitle: "⭐ Upgrade to Social Studio Pro & Agency Plan",
+      pricingModalTitle: "Social Studio Plans",
+      pricingModalSubtitle: "Scale your personal brand or agency with high-velocity automation.",
+      savePercent: "Save 20%",
+      monthly: "Monthly",
+      annual: "Annual",
+      currentPlan: "Current Plan:",
+      monthlyBilling: "Monthly",
+      yearlyBilling: "Yearly (Save 20%)",
+      upgradeBtn: "Upgrade to This Plan",
+      activePlanBtn: "Active Plan",
+      brandLimitReached: "Brand limit reached. Upgrade to Pro or Agency to manage more brands.",
+      aiLimitReached: "Monthly AI script limit reached. Upgrade to Pro for unlimited generation."
+    },
+    aiStudio: {
+      toneLabel: "AI Communication Tone",
+      viralScoreTitle: "Viral Retention Score",
+      viralScoreSubtitle: "Algorithmic ER & Watch-Time Forecast",
+      suggestionsTitle: "Growth Recommendations",
+      smartHashtagsLabel: "Smart Recommended Hashtags"
+    },
+    clientPortal: {
+      portalTitle: "Client Approval Portal",
+      approveBtn: "✅ Approve",
+      revisionBtn: "✏️ Request Changes",
+      approvedSuccess: "Post approved successfully!",
+      revisionSuccess: "Revision feedback and notes logged successfully.",
+      historyTitle: "Approval & Revision Audit Trail"
     }
   }
 };

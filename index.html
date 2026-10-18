@@ -76,6 +76,9 @@
       </div>
 
       <div class="header-actions">
+        <button id="pricingModalBtn" class="btn btn-tier" title="Abonelik Planları & Yükselt">
+          <span id="tierBadgeText">⭐ PRO</span>
+        </button>
         <div class="lang-switcher">
           <button id="langBtnTr" class="lang-btn active" data-lang="tr">🇹🇷 TR</button>
           <button id="langBtnEn" class="lang-btn" data-lang="en">🇬🇧 EN</button>
@@ -176,14 +179,27 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="pillarSelect" data-i18n="studio.pillarLabel">İçerik Sütunu (Content Pillar)</label>
-            <select id="pillarSelect" class="form-control">
-              <option value="value" data-i18n="studio.pillarValue">💡 Eğitim & Değer (%40)</option>
-              <option value="social_proof" data-i18n="studio.pillarSocialProof">⭐ Sosyal Kanıt & Referans (%30)</option>
-              <option value="behind_scenes" data-i18n="studio.pillarBehindScenes">🎬 Perde Arkası & Kültür (%20)</option>
-              <option value="conversion" data-i18n="studio.pillarConversion">🎯 Doğrudan Satış & Teklif (%10)</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="toneSelect" data-i18n="aiStudio.toneLabel">Yapay Zeka İletişim Tonu</label>
+              <select id="toneSelect" class="form-control">
+                <option value="luxury_architecture">🏛️ Lüks & Prestijli Mimari</option>
+                <option value="tech_founder">💻 Tech Girişimci & Build-in-Public</option>
+                <option value="friendly_casual">✨ Samimi & Genç İletişim</option>
+                <option value="authoritative_expert">🎯 Otoriter & Eğitici Uzman</option>
+                <option value="direct_response">🔥 Doğrudan Satış & Teklif</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pillarSelect" data-i18n="studio.pillarLabel">İçerik Sütunu (Content Pillar)</label>
+              <select id="pillarSelect" class="form-control">
+                <option value="value" data-i18n="studio.pillarValue">💡 Eğitim & Değer (%40)</option>
+                <option value="social_proof" data-i18n="studio.pillarSocialProof">⭐ Sosyal Kanıt & Referans (%30)</option>
+                <option value="behind_scenes" data-i18n="studio.pillarBehindScenes">🎬 Perde Arkası & Kültür (%20)</option>
+                <option value="conversion" data-i18n="studio.pillarConversion">🎯 Doğrudan Satış & Teklif (%10)</option>
+              </select>
+            </div>
           </div>
 
           <button id="generateContentBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;" data-i18n="studio.generateBtn">
@@ -210,6 +226,21 @@
             <button class="channel-tab-btn" data-channel="linkedin" data-i18n="studio.previewLinkedin">💼 LinkedIn</button>
             <button class="channel-tab-btn" data-channel="tiktok" data-i18n="studio.previewTiktok">🎵 TikTok</button>
             <button class="channel-tab-btn" data-channel="instagram" data-i18n="studio.previewInstagram">📸 Instagram</button>
+          </div>
+
+          <!-- Viral Retention Score Widget -->
+          <div id="viralScoreWidget" class="viral-score-card" style="display:none; margin: 10px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span style="font-weight:700; font-size:0.88rem;" data-i18n="aiStudio.viralScoreTitle">Viral Tutundurma Skoru</span>
+                <span id="viralScoreRatingBadge" class="api-badge connected" style="margin-left:8px;">🚀 Viral Masterpiece</span>
+              </div>
+              <div id="viralScoreNumber" style="font-size:1.25rem; font-weight:800; color:var(--primary);">85/100</div>
+            </div>
+            <div class="pillar-bar-wrap" style="margin-top:6px; height:8px;">
+              <div id="viralScoreFill" class="pillar-bar-fill" style="width:85%; background:linear-gradient(90deg, #6366f1, #a855f7);"></div>
+            </div>
+            <div id="viralScoreSuggestions" style="font-size:0.78rem; color:var(--text-muted); margin-top:6px;"></div>
           </div>
 
           <div id="contentOutput" class="output-box" style="flex-grow:1;">
@@ -640,10 +671,51 @@ Hazır: Cross-post motoru aktif. Tek tıkla tüm ağlara dağıtım yapılabilir
         <div id="modalPostCaption" class="output-box" style="max-height:180px;"></div>
       </div>
 
-      <div style="display:flex; gap:10px; margin-top:20px;">
+      <div style="display:flex; gap:10px; margin-top:16px;">
         <button id="modalWhatsAppBtn" class="btn btn-whatsapp" style="flex:1;" data-i18n="modal.sendWaApproval">
           📱 Müşteriye WhatsApp Onay Mesajı Gönder
         </button>
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button id="modalApproveBtn" class="btn btn-primary" style="flex:1; background: #059669; border-color: #059669;" data-i18n="clientPortal.approveBtn">
+          ✅ Müşteri Olarak Onayla
+        </button>
+        <button id="modalRevisionBtn" class="btn btn-outline" style="flex:1; border-color: #e11d48; color: #f43f5e;" data-i18n="clientPortal.revisionBtn">
+          🔄 Revize İste
+        </button>
+      </div>
+
+      <div id="modalPortalAuditTrail" style="font-size:0.75rem; color:var(--text-dim); margin-top:12px; display:none; background:var(--bg-card); padding:10px; border-radius:6px; border:1px solid var(--border-subtle);"></div>
+    </div>
+  </div>
+
+  <!-- Subscription & Pricing Modal -->
+  <div id="pricingModal" class="modal-backdrop">
+    <div class="modal-box pricing-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div>
+          <h3 style="font-size:1.35rem; font-weight:800; background:linear-gradient(135deg,#38bdf8,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent;" data-i18n="subscription.pricingModalTitle">
+            Social Studio Planları
+          </h3>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;" data-i18n="subscription.pricingModalSubtitle">
+            İşletmenizi veya ajansınızı profesyonel ölçeğe taşıyın.
+          </p>
+        </div>
+        <button id="closePricingModalBtn" style="background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+
+      <!-- Monthly / Annual Toggle -->
+      <div class="billing-toggle-wrap">
+        <button id="billingMonthlyBtn" class="billing-btn active" data-i18n="subscription.monthly">Aylık</button>
+        <button id="billingAnnualBtn" class="billing-btn" data-i18n="subscription.annual">
+          Yıllık <span class="discount-badge" data-i18n="subscription.savePercent">%20 İndirim</span>
+        </button>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-cards-grid" id="pricingCardsGrid">
+        <!-- Rendered dynamically by app.js / initPricingModal -->
       </div>
     </div>
   </div>
