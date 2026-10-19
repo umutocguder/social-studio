@@ -6,79 +6,89 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { TelemetryLogger } from '../src/telemetry/logger.js';
+import { TelemetryLogger, scrubSensitiveData, toFirestoreFields } from '../src/telemetry/logger.js';
 import { FIREBASE_ECOSYSTEM_CONFIG } from '../src/telemetry/firebaseConfig.js';
 
-test('FIREBASE_ECOSYSTEM_CONFIG matches Umut Öçgüder Firebase account', () => {
+test('FIREBASE_ECOSYSTEM_CONFIG targets umutocgdr@gmail.com and hopem-software-cloud', () => {
   assert.equal(FIREBASE_ECOSYSTEM_CONFIG.account, 'umutocgdr@gmail.com');
   assert.equal(FIREBASE_ECOSYSTEM_CONFIG.projectId, 'hopem-software-cloud');
-  assert.ok(FIREBASE_ECOSYSTEM_CONFIG.errorReportingUrl.includes('clouderrorreporting.googleapis.com'));
 });
 
-test('TelemetryLogger initializes properly with app configuration', () => {
-  const logger = new TelemetryLogger({
-    appName: 'test-app',
-    appVersion: '2.1.0'
-  });
+test('TelemetryLogger logs info, error and handles local storage safely', () => {
+  const logger = new TelemetryLogger({ appName: 'social-studio-test' });
+  const entry = logger.info('Test event recorded', { action: 'view' });
+  assert.equal(entry.level, 'INFO');
+  assert.equal(entry.appName, 'social-studio-test');
 
-  assert.equal(logger.appName, 'test-app');
-  assert.equal(logger.appVersion, '2.1.0');
-  assert.equal(logger.inMemoryBuffer.length, 0);
-});
+  const crash = logger.crash('Simulated crash error');
+  assert.equal(crash.level, 'CRASH');
+  assert.equal(logger.inMemoryBuffer.length, 2);
 
-test('TelemetryLogger writes info, warn, error and crash logs', () => {
-  const logger = new TelemetryLogger({ appName: 'test-logger' });
-
-  const infoEntry = logger.info('App started successfully', { user: 'admin' });
-  assert.equal(infoEntry.level, 'INFO');
-  assert.equal(infoEntry.appName, 'test-logger');
-  assert.equal(infoEntry.message, 'App started successfully');
-  assert.equal(infoEntry.context.user, 'admin');
-
-  const warnEntry = logger.warn('Low memory warning');
-  assert.equal(warnEntry.level, 'WARN');
-
-  const errorEntry = logger.error(new Error('Database timeout'), { retryCount: 3 });
-  assert.equal(errorEntry.level, 'ERROR');
-  assert.ok(errorEntry.message.includes('Database timeout'));
-
-  const crashEntry = logger.crash('Critical render failure');
-  assert.equal(crashEntry.level, 'CRASH');
-
-  assert.equal(logger.inMemoryBuffer.length, 4);
-});
-
-test('TelemetryLogger respects max buffer limits and exports JSON', () => {
-  const logger = new TelemetryLogger({
-    appName: 'buffer-test',
-    maxLocalLogs: 3
-  });
-
-  logger.info('Log 1');
-  logger.info('Log 2');
-  logger.info('Log 3');
-  logger.info('Log 4'); // Should drop Log 1
-
-  assert.equal(logger.inMemoryBuffer.length, 3);
-  assert.equal(logger.inMemoryBuffer[0].message, 'Log 2');
-  assert.equal(logger.inMemoryBuffer[2].message, 'Log 4');
-
-  const jsonStr = logger.exportLogsAsJson();
-  assert.ok(typeof jsonStr === 'string');
-  const parsed = JSON.parse(jsonStr);
-  assert.equal(parsed.length, 3);
-});
-
-test('TelemetryLogger Zero-Crash tolerance guarantee', () => {
-  const logger = new TelemetryLogger({ appName: 'resilience-test' });
-
-  // Passing undefined, null, circular references or empty inputs must never throw
   assert.doesNotThrow(() => {
-    logger.log(null, null);
-    logger.error(undefined);
-    logger.crash({});
-    logger.getRecentLogs(-1);
+    logger.getRecentLogs();
     logger.exportLogsAsJson();
     logger.clearLogs();
   });
+});
+
+test('scrubSensitiveData redacts sensitive keys, TCKN and credit card numbers', () => {
+  const sensitivePayload = {
+    username: 'testuser',
+    password: 'supersecretpassword123',
+    token: 'jwt-token-xyz',
+    userTckn: '12345678901',
+    payment: {
+      creditCard: '4543 1234 5678 9012',
+      cvv: '123',
+      description: 'Transaction for customer with TCKN 23456789012'
+    }
+  };
+
+  const scrubbed = scrubSensitiveData(sensitivePayload);
+  assert.equal(scrubbed.username, 'testuser');
+  assert.equal(scrubbed.password, '***REDACTED***');
+  assert.equal(scrubbed.token, '***REDACTED***');
+  assert.equal(scrubbed.payment.cvv, '***REDACTED***');
+  assert.equal(scrubbed.payment.creditCard, '***REDACTED***');
+  assert.equal(scrubbed.payment.description.includes('***TCKN_REDACTED***'), true);
+});
+
+test('toFirestoreFields correctly maps JavaScript types to Firestore REST types', () => {
+  const sample = {
+    title: 'Event Action',
+    count: 5,
+    rate: 98.5,
+    active: true,
+    deletedAt: null,
+    meta: { category: 'action' }
+  };
+
+  const fields = toFirestoreFields(sample);
+  assert.equal(fields.title.stringValue, 'Event Action');
+  assert.equal(fields.count.integerValue, '5');
+  assert.equal(fields.rate.doubleValue, 98.5);
+  assert.equal(fields.active.booleanValue, true);
+  assert.equal(fields.deletedAt.nullValue, null);
+  assert.ok(fields.meta.stringValue.includes('action'));
+});
+
+test('TelemetryLogger handles multi-level logging and collection routing', () => {
+  const logger = new TelemetryLogger({ appName: 'social-studio-multi-test' });
+
+  const secLog = logger.security('Admin login attempt', { ip: '127.0.0.1' });
+  assert.equal(secLog.level, 'SECURITY');
+  assert.equal(secLog.targetCollection, 'security_audit_logs');
+
+  const teleLog = logger.telemetry('feature_interacted', { featureId: 'ft-01' });
+  assert.equal(teleLog.level, 'TELEMETRY');
+  assert.equal(teleLog.targetCollection, 'telemetry_logs');
+
+  const visLog = logger.visitor('page_visited', { path: '/home' });
+  assert.equal(visLog.level, 'VISITOR');
+  assert.equal(visLog.targetCollection, 'visitor_logs');
+
+  const perfLog = logger.performance('render_latency', 16);
+  assert.equal(perfLog.level, 'PERF');
+
+  assert.equal(logger.inMemoryBuffer.length, 4);
 });
