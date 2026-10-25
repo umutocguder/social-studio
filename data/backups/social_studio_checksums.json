@@ -1,5 +1,77 @@
 [
   {
+    "timestamp": "2026-10-25T18:51:52.231Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "35d6c3657cc56fcdf82782ddf75d77d507a8ff8542e76921ca0ed80caf050dc7",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-52-230Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:51:52.008Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "eae9c13f7a0acc76e2ebc051c46049a80a6c14af309eaaf6ae736177f7625c4b",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-52-008Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:51:20.601Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "990d125b843522083d8abf7a7ef54311a56af2bdf110f15c203660fc6512c4ce",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-20-601Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:51:20.355Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "7725c495fcd23837adbdbbdf1ef4866baf6883d8ff9e19f58c47b579734aa821",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-20-354Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:51:07.769Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "0a0cf1601da93352a163f8add7ac9314fb9277c3f7b122a36ec443ac8b035693",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-07-768Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:51:07.522Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "9a13e2aeda2fe96c37005ed7ca8f1f7bc4494d205fff8411a6dca7b85288f375",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-25T18-51-07-522Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:46:33.266Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "5d64bedd1eee1de98e2f7b02e87292a751020d353fa73c38eeaaf73b47c66f79",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-25T18-46-33-266Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-25T18:46:33.029Z",
+    "brandsCount": 5,
+    "postsCount": 2,
+    "sha256": "f9b8e9cdae6a9ff9251ee3c407edb59edee4cd1151d01687748842da69d2b12f",
+    "fileSize": 4801,
+    "backupFile": "social_studio_backup_2026-10-25T18-46-33-029Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
     "timestamp": "2026-10-19T01:50:43.363Z",
     "brandsCount": 5,
     "postsCount": 2,
@@ -195,78 +267,6 @@
     "sha256": "38c72bd687bf4b3d367a591de491b56b864863072d3c333907e6bcc2e008590d",
     "fileSize": 4801,
     "backupFile": "social_studio_backup_2026-10-18T20-00-25-396Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-18T19:59:40.211Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "8a5cc67eaa4d6d2c7601b2bbeeda5bd4cb11648baef4d2e41a428ccf73856b00",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-18T19-59-40-211Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-18T19:59:40.003Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "f29a952fe1ff7fb7565ff632fa38e0b5d8def162fbd545d6d8368f34653003e1",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-18T19-59-40-002Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-16T07:10:08.464Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "879b2666a40d0fc9853abe091a7ecb072a3b2c3dc12b02ccde254bcea5da13e6",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-16T07-10-08-464Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-16T07:10:08.251Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "3ed3b143a1880fa59ff4e434ad530d5ec975db033cbda86d354a0e953ce63c3e",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-16T07-10-08-250Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-14T07:18:02.350Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "85ed0904b14a025ed092028357272b12a31d115a066f6ac1903cd76edbb9bcdd",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-14T07-18-02-349Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-14T07:18:02.114Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "f58facf3064d220a6bcadda3a5cf6d885000578d889bf7223cf2132649a84406",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-14T07-18-02-113Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-14T07:13:30.225Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "3c4e84adb152426d50490ea87b77f1feee214faf4952f2f426df7ed6858607a0",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-14T07-13-30-224Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-12T13:45:16.135Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "c36b68a8597b600934c20c096a1ddad7c453e3b52c2871ff4f909a27b63d9f49",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-12T13-45-16-135Z.json",
     "latestBackupFile": "social_studio_latest_backup.json"
   }
 ]

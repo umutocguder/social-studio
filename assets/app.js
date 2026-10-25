@@ -11,6 +11,7 @@ import {
   CONTENT_PILLARS,
   NOLTE_PROJECT_PRESETS,
   UMUT_TECH_PRESETS,
+  NMG_DRILLING_PRESETS,
   generateReelsScript,
   generateCarouselOutline,
   generateCaption
@@ -432,6 +433,7 @@ function updateUI() {
 
   renderNoltePresets();
   renderUmutPresets();
+  renderNmgPresets();
   renderHooks();
   renderCalendar();
   renderGrid();
@@ -520,6 +522,34 @@ function renderUmutPresets() {
     container.querySelectorAll('.preset-chip').forEach(btn => {
       btn.addEventListener('click', () => {
         const p = UMUT_TECH_PRESETS[Number(btn.dataset.idx)];
+        if (!p) return;
+        document.getElementById('topicInput').value = p.title;
+        document.getElementById('formatSelect').value = p.format;
+        document.getElementById('pillarSelect').value = p.pillar;
+        handleContentGeneration();
+      });
+    });
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
+function renderNmgPresets() {
+  const container = document.getElementById('nmgPresetChips');
+  const wrap = document.getElementById('nmgPresetWrap');
+  if (!container || !wrap) return;
+
+  if (currentBrandId === 'nmg-sondaj') {
+    wrap.style.display = 'block';
+    container.innerHTML = NMG_DRILLING_PRESETS.map((preset, index) => `
+      <button class="preset-chip" data-idx="${index}" style="background:rgba(245, 158, 11, 0.2); border-color:rgba(245, 158, 11, 0.4); color:#fbbf24;">
+        ${preset.coverText || preset.title}
+      </button>
+    `).join('');
+
+    container.querySelectorAll('.preset-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = NMG_DRILLING_PRESETS[Number(btn.dataset.idx)];
         if (!p) return;
         document.getElementById('topicInput').value = p.title;
         document.getElementById('formatSelect').value = p.format;

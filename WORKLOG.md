@@ -1,5 +1,23 @@
 # Social Studio Worklog & AI Context Handoff
 
+### [2026-10-25 21:50] Social Studio — NMG Sondaj Kurumsal Marka Entegrasyonu, DTH Mühendislik Presetleri & 9-Grid Desteği
+- **Görev ve Amaç**:
+  - Kullanıcının "bu sitelerin yönetimini daha önce oluşturduğumuz sosyal medya yönetim projesiyle yapmamız daha iyi olmaz mı" talimatı doğrultusunda `nmg-sondaj` markasının Social Studio ekosistemine resmi 6. marka olarak eklenmesi.
+  - Sondaj, kaya delgi, DTH çekiç montajı ve kuyu tahliyesi teknik senaryolarını tek tıkla üreten `NMG_DRILLING_PRESETS` şablonlarının ve UI bileşenlerinin devreye alınması.
+- **Teknik Kararlar ve Mimarî**:
+  1. **Marka Profili (`src/brandManager.js`)**:
+     - `DEFAULT_BRANDS` içerisine `nmg-sondaj` eklendi (`#F59E0B` amber / `#090B10` grafit renk paleti, resmi Instagram/YouTube/Facebook hesapları, telefon ve WhatsApp onay bağlantısı).
+  2. **Mühendislik İçerik Presetleri (`src/contentStudio.js`)**:
+     - Rulman dizilimi, 16 bar delgi ve ROP hesabı, sürtünme kaynaklı API tijler ve kuyu airlift tahliyesi konularında 4 adet yüksek tutundurmalı hazır Reels/Carousel şablonu tanımlandı.
+  3. **Arayüz & Çift Dil Desteği (`index.html`, `assets/app.js`, `src/i18n.js`)**:
+     - `#nmgPresetWrap` çipleri eklendi, marka seçildiğinde sarı/amber vurgulu tek tıkla senaryo çipleri aktifleşiyor. TR ve EN i18n anahtarları (`studio.nmgPresetsLabel`) tanımlandı.
+  4. **Kalite & Test Bütünlüğü**:
+     - Toplam 72/72 test (%100 All Passed) başarıyla geçti.
+- **Etkilenen Dosyalar**:
+  - `src/brandManager.js`, `src/contentStudio.js`, `src/i18n.js`, `index.html`, `assets/app.js`, `tests/brandManager.test.js`, `tests/contentStudio.test.js`
+
+---
+
 ### [2026-10-18 23:15] Social Studio v1.1.0 — Ticari Büyütme, Abonelik Motoru, Müşteri Onay Portalı & AI Viral Skorlama
 - **Görev ve Amaç**:
   - Kullanıcının "projemizi büyüt" ve para kazanma hedefi doğrultusunda Social Studio'yu ticari bir SaaS ürününe dönüştürme.

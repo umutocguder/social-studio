@@ -114,6 +114,27 @@ export const DEFAULT_BRANDS = [
     },
     defaultHashtags: ["#yazilim", "#softwareengineering", "#iosdev", "#techfounder", "#coding", "#yapayzeka", "#buildinpublic"],
     clientPhone: "0535 403 13 63"
+  },
+  {
+    id: "nmg-sondaj",
+    name: "NMG Sondaj",
+    handle: "@nmgsondajj",
+    sector: "Endüstriyel Sondaj & Kaya Delgi Mühendisliği",
+    tone: "Mühendislik temelli, otoriter, teknik ve endüstriyel",
+    company: "NMG Sondaj Malzemeleri San. ve Tic. Ltd. Şti.",
+    website: "https://nmg-sondaj.vercel.app",
+    primaryColor: "#F59E0B",
+    secondaryColor: "#090B10",
+    targetAudience: "Sondaj müteahhitleri, taş ocağı ve maden işletmeleri, jeoloji mühendisleri",
+    socialAccounts: {
+      instagram: "@nmgsondajj",
+      youtube: "@nmgsondajankara2888",
+      facebook: "nmgsondajj",
+      web: "https://nmg-sondaj.vercel.app"
+    },
+    defaultHashtags: ["#nmgsondaj", "#sondaj", "#kayadelgi", "#dthcekiç", "#drillrig", "#mining", "#waterwell", "#dthhammer"],
+    clientPhone: "0312 354 58 24",
+    clientWhatsapp: "0535 403 13 63"
   }
 ];
 

@@ -10,6 +10,7 @@ import {
   VIRAL_HOOKS,
   CALL_TO_ACTIONS,
   CONTENT_PILLARS,
+  NMG_DRILLING_PRESETS,
   generateReelsScript,
   generateCarouselOutline,
   generateCaption
@@ -70,4 +71,14 @@ test('generateCaption combines hook, points, CTA and hashtags', () => {
   assert.ok(caption.includes('Yorumlarda buluşalım'));
   assert.ok(caption.includes('#kpsscografya'));
   assert.ok(caption.includes('#cografyanotlari'));
+});
+
+test('NMG_DRILLING_PRESETS contains valid engineering scenario templates', () => {
+  assert.ok(Array.isArray(NMG_DRILLING_PRESETS));
+  assert.ok(NMG_DRILLING_PRESETS.length >= 4);
+
+  const rulmanPreset = NMG_DRILLING_PRESETS.find(p => p.title.includes('Rulman Dizimi'));
+  assert.ok(rulmanPreset, 'Rulman Dizimi preset must exist');
+  assert.equal(rulmanPreset.format, 'reels');
+  assert.ok(rulmanPreset.caption.includes('DTH'));
 });

@@ -25,11 +25,16 @@ test('normalizePhone formats Turkish phone numbers correctly', () => {
 });
 
 test('DEFAULT_BRANDS includes built-in brand ecosystem', () => {
-  assert.ok(DEFAULT_BRANDS.length >= 4);
+  assert.ok(DEFAULT_BRANDS.length >= 5);
   const nolte = DEFAULT_BRANDS.find(b => b.id === 'nolte-mimarlik');
   assert.ok(nolte);
   assert.equal(nolte.handle, '@noltemimarlik');
   assert.ok(nolte.defaultHashtags.length > 0);
+
+  const nmg = DEFAULT_BRANDS.find(b => b.id === 'nmg-sondaj');
+  assert.ok(nmg, 'NMG Sondaj brand must exist in DEFAULT_BRANDS');
+  assert.equal(nmg.handle, '@nmgsondajj');
+  assert.equal(nmg.website, 'https://nmg-sondaj.vercel.app');
 });
 
 test('BrandManager adds, validates and retrieves new brands', () => {

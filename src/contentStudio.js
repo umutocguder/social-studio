@@ -176,6 +176,37 @@ export const NOLTE_PROJECT_PRESETS = [
   }
 ];
 
+export const NMG_DRILLING_PRESETS = [
+  {
+    title: "Rulman Dizimi ve DTH Çekiç Montaj Hataları (Şantiye Arızasını Sıfırlayın)",
+    format: "reels",
+    pillar: "value",
+    coverText: "Usta Hatalarını Bitiren DTH Rulman Dizilimi ⚙️",
+    caption: "Sondaj sahalarında DTH çekiç kilitlenmesi ve rulman dağılmasının %80 sebebi yanlış dizilim sırasıdır. Çekiç ömrünü 2 katına çıkaran montaj incelikleri yayında!"
+  },
+  {
+    title: "Sert Granit ve Andezitte 16 Bar Delgi ve ROP Hesaplama",
+    format: "reels",
+    pillar: "behind_scenes",
+    coverText: "Sert Kayada 16 Bar Delgi Hızı Testi ⛏️",
+    caption: "Formasyon sertliğine göre kompresör basıncı ve CFM debisi nasıl dengelenir? Şantiye penetrasyon hızını (ROP) artıran mühendislik optimizasyonu."
+  },
+  {
+    title: "Sürtünme Kaynaklı (Friction Welded) API Tijler Neden Diş Sıyırmaz?",
+    format: "carousel",
+    pillar: "social_proof",
+    coverText: "API Spec 7-1 Tijlerde Sürtünme Kaynak Gücü 🔬",
+    caption: "İvedik OSB fabrikamızda üretilen yüksek torklu su sondajı tijlerinin metalurjik yapısı ve 42 ülkeye ihraç edilen dayanım sırrı."
+  },
+  {
+    title: "Derin Kuyuda Airlift Tahliyesi ve Çakıllama Operasyonu",
+    format: "carousel",
+    pillar: "value",
+    coverText: "Artezyen Kuyu Temizliğinde Airlift Metodu 💧",
+    caption: "Kuyu çakıllaması ve ince kum tahliyesinde kompresör havasıyla temizlik rehberi. Su debisini maksimize eden pratik saha adımları."
+  }
+];
+
 export const CALL_TO_ACTIONS = [
   { id: "save", label: "Kaydet", text: "Bu içeriği daha sonra tekrar incelemek için mutlaka KAYDET 📌" },
   { id: "comment", label: "Yorum Yap", text: "Sen bu konuda ne düşünüyorsun? Yorumlarda buluşalım 👇" },

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "exportedAt": "2026-10-19T01:50:43.360Z",
+  "exportedAt": "2026-10-25T18:51:52.229Z",
   "creator": "Social Studio by 11hopem",
   "brands": [
     {
@@ -115,6 +115,36 @@
         "#buildinpublic"
       ],
       "clientPhone": "0535 403 13 63"
+    },
+    {
+      "id": "nmg-sondaj",
+      "name": "NMG Sondaj",
+      "handle": "@nmgsondajj",
+      "sector": "Endüstriyel Sondaj & Kaya Delgi Mühendisliği",
+      "tone": "Mühendislik temelli, otoriter, teknik ve endüstriyel",
+      "company": "NMG Sondaj Malzemeleri San. ve Tic. Ltd. Şti.",
+      "website": "https://nmg-sondaj.vercel.app",
+      "primaryColor": "#F59E0B",
+      "secondaryColor": "#090B10",
+      "targetAudience": "Sondaj müteahhitleri, taş ocağı ve maden işletmeleri, jeoloji mühendisleri",
+      "socialAccounts": {
+        "instagram": "@nmgsondajj",
+        "youtube": "@nmgsondajankara2888",
+        "facebook": "nmgsondajj",
+        "web": "https://nmg-sondaj.vercel.app"
+      },
+      "defaultHashtags": [
+        "#nmgsondaj",
+        "#sondaj",
+        "#kayadelgi",
+        "#dthcekiç",
+        "#drillrig",
+        "#mining",
+        "#waterwell",
+        "#dthhammer"
+      ],
+      "clientPhone": "0312 354 58 24",
+      "clientWhatsapp": "0535 403 13 63"
     }
   ],
   "posts": [
@@ -125,7 +155,7 @@
       "format": "reels",
       "pillar": "authority",
       "status": "approved",
-      "scheduledDate": "2026-10-19",
+      "scheduledDate": "2026-10-25",
       "scheduledTime": "19:00",
       "coverText": "Lüks mutfaklarda göze çarpmayan ama kaliteyi belirleyen 3 unsur",
       "caption": "Mutfak adasında kullanılan gizli prizler, mat lake yüzeyler ve ray sistemleri... Tasarım detaylarda gizlidir. #noltemimarlik #icmimarlik"
@@ -137,7 +167,7 @@
       "format": "carousel",
       "pillar": "value",
       "status": "scheduled",
-      "scheduledDate": "2026-10-19",
+      "scheduledDate": "2026-10-25",
       "scheduledTime": "10:00",
       "coverText": "SwiftData'ya geçmeli misiniz? İşte gerçek benchmark sonuçları",
       "caption": "Büyük veri setlerinde bellek tüketimi ve migration süreleri. SwiftData gelecektir. #swift #iosdev"
