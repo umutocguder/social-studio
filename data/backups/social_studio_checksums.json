@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "2026-10-28T17:57:46.561Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "0060c7e6bbda52667aae81d4e1eb2f91a9a43922d9edf0f44808f4e31a58f0a9",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-28T17-57-46-560Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
+    "timestamp": "2026-10-28T17:57:46.001Z",
+    "brandsCount": 6,
+    "postsCount": 2,
+    "sha256": "e0aef9f73b8f91675531c3ae5308412c195e8b283564c8f8a62069eb598e1a49",
+    "fileSize": 5810,
+    "backupFile": "social_studio_backup_2026-10-28T17-57-46-000Z.json",
+    "latestBackupFile": "social_studio_latest_backup.json"
+  },
+  {
     "timestamp": "2026-10-25T18:51:52.231Z",
     "brandsCount": 6,
     "postsCount": 2,
@@ -249,24 +267,6 @@
     "sha256": "6f10bd1f1b5387eb44bfa58df4c58a5fae3d7ea265b09a31e30d8316f1bcaba6",
     "fileSize": 4801,
     "backupFile": "social_studio_backup_2026-10-18T20-00-52-871Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-18T20:00:25.657Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "7235345c7c85b654247950f20d9e66957b64e023b92b61b320ced831fa7e1e80",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-18T20-00-25-657Z.json",
-    "latestBackupFile": "social_studio_latest_backup.json"
-  },
-  {
-    "timestamp": "2026-10-18T20:00:25.397Z",
-    "brandsCount": 5,
-    "postsCount": 2,
-    "sha256": "38c72bd687bf4b3d367a591de491b56b864863072d3c333907e6bcc2e008590d",
-    "fileSize": 4801,
-    "backupFile": "social_studio_backup_2026-10-18T20-00-25-396Z.json",
     "latestBackupFile": "social_studio_latest_backup.json"
   }
 ]
