@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://social-studio-app.vercel.app"><img src="https://img.shields.io/badge/Vercel-Live-brightgreen?style=flat-square" alt="Vercel Live"></a>
+  <a href="https://social-studio.11hopem.com"><img src="https://img.shields.io/badge/Vercel-Live-brightgreen?style=flat-square" alt="Vercel Live"></a>
   <a href="https://github.com/umutocguder/social-studio"><img src="https://img.shields.io/badge/Tests-72%20Passed-success?style=flat-square" alt="Tests 72 Passed"></a>
   <a href="https://11hopem.com"><img src="https://img.shields.io/badge/Built%20by-11Hopem-blue?style=flat-square" alt="Author"></a>
   <a href="https://github.com/umutocguder/social-studio"><img src="https://img.shields.io/badge/Open%20Source-Public-blueviolet?style=flat-square" alt="Open Source"></a>
@@ -35,7 +35,7 @@
 
 - **Frontend:** Vanilla JavaScript (ES2024), Semantic HTML5, Modular CSS
 - **Testing:** Native Node.js Test Runner (`node --test`) with 72 automated unit tests
-- **Deployment:** Vercel Production (`https://social-studio-app.vercel.app`)
+- **Deployment:** Vercel Production (`https://social-studio.11hopem.com`)
 - **Telemetry:** Firebase Cloud Firestore REST integration (`hopem-software-cloud`)
 
 ---
@@ -58,7 +58,7 @@ npm start
 
 ## 5. Live Links & Attribution
 
-- **Live Web Application:** [https://social-studio-app.vercel.app](https://social-studio-app.vercel.app)
+- **Live Web Application:** [https://social-studio.11hopem.com](https://social-studio.11hopem.com)
 - **GitHub Repository:** [https://github.com/umutocguder/social-studio](https://github.com/umutocguder/social-studio)
 
 Created by **[11Hopem](https://11hopem.com)**  

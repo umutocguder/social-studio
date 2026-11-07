@@ -100,7 +100,7 @@ export const DEFAULT_BRANDS = [
     tone: "Vizyoner, teknik, eğitici, ilham verici ve net",
     title: "Senior Software Engineer & Tech Founder",
     company: "11Hopem",
-    website: "https://umutocguder.vercel.app",
+    website: "https://11hopem.com",
     primaryColor: "#0284c7",
     secondaryColor: "#0f172a",
     targetAudience: "Yazılımcılar, teknoloji liderleri, startup kurucuları ve mühendisler",
@@ -110,7 +110,7 @@ export const DEFAULT_BRANDS = [
       linkedin: "in/umutocguder",
       x: "@umutocguder",
       github: "umutocguder",
-      web: "https://umutocguder.vercel.app"
+      web: "https://11hopem.com"
     },
     defaultHashtags: ["#yazilim", "#softwareengineering", "#iosdev", "#techfounder", "#coding", "#yapayzeka", "#buildinpublic"],
     clientPhone: "0535 403 13 63"
@@ -122,7 +122,7 @@ export const DEFAULT_BRANDS = [
     sector: "Endüstriyel Sondaj & Kaya Delgi Mühendisliği",
     tone: "Mühendislik temelli, otoriter, teknik ve endüstriyel",
     company: "NMG Sondaj Malzemeleri San. ve Tic. Ltd. Şti.",
-    website: "https://nmg-sondaj.vercel.app",
+    website: "https://sondaj.11hopem.com",
     primaryColor: "#F59E0B",
     secondaryColor: "#090B10",
     targetAudience: "Sondaj müteahhitleri, taş ocağı ve maden işletmeleri, jeoloji mühendisleri",
@@ -130,7 +130,7 @@ export const DEFAULT_BRANDS = [
       instagram: "@nmgsondajj",
       youtube: "@nmgsondajankara2888",
       facebook: "nmgsondajj",
-      web: "https://nmg-sondaj.vercel.app"
+      web: "https://sondaj.11hopem.com"
     },
     defaultHashtags: ["#nmgsondaj", "#sondaj", "#kayadelgi", "#dthcekiç", "#drillrig", "#mining", "#waterwell", "#dthhammer"],
     clientPhone: "0312 354 58 24",

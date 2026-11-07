@@ -34,7 +34,7 @@ test('DEFAULT_BRANDS includes built-in brand ecosystem', () => {
   const nmg = DEFAULT_BRANDS.find(b => b.id === 'nmg-sondaj');
   assert.ok(nmg, 'NMG Sondaj brand must exist in DEFAULT_BRANDS');
   assert.equal(nmg.handle, '@nmgsondajj');
-  assert.equal(nmg.website, 'https://nmg-sondaj.vercel.app');
+  assert.equal(nmg.website, 'https://sondaj.11hopem.com');
 });
 
 test('BrandManager adds, validates and retrieves new brands', () => {
